@@ -26,7 +26,7 @@ class CardDeckManager {
         self.cardAnimationInitialPosition = cardAnimationInitialPosition
     }
     
-    func addCard(card: Card, _ completion:(()->Void)? = nil) {
+    func addCard(_ card: Card, _ completion:(()->Void)? = nil) {
         
         let cardView = CardView(card)
         let newDeckWidth = CGFloat(allCardViews.count) * cardGap + cardView.w
@@ -44,24 +44,24 @@ class CardDeckManager {
         animateDealNewCardView(cardView, to: newCardPosX, completion)
     }
     
-    func animateShiftExsitingCard(shiftAmount: CGFloat) {
+    func animateShiftExsitingCard(_ shiftAmount: CGFloat) {
         for c in allCardViews {
-            let frame = CGRectMake(c.x - shiftAmount, c.y, c.w, c.h)
+            let frame = CGRect(x: c.x - shiftAmount, y: c.y, width: c.w, height: c.h)
             c.positionAnimation(frame, duration: 0.28*animationSpeedFactor, easeOut)
         }
     }
     
-    func animateDealNewCardView(cardView: CardView, to positionX: CGFloat, _ completion:(()->Void)? = nil) {
+    func animateDealNewCardView(_ cardView: CardView, to positionX: CGFloat, _ completion:(()->Void)? = nil) {
         AudioManager.sharedInstance.playShortMp3WithName("cardSlide")
         cardView.frame.origin = cardAnimationInitialPosition
-        hostView.addSubview(cardView, positioned: .Below, relativeTo: blowView)
+        hostView.addSubview(cardView, positioned: .below, relativeTo: blowView)
         allCardViews.append(cardView)
         
         cardView.alphaValue = 0.0
         cardView.alphaAnimation(1.0, duration: 0.16*animationSpeedFactor)
         
         let size = cardView.frame.size
-        let frame = CGRectMake(positionX, cardAnimationEndY, size.width, size.height)
+        let frame = CGRect(x: positionX, y: cardAnimationEndY, width: size.width, height: size.height)
         cardView.positionAnimation(frame, duration: 0.28*animationSpeedFactor, easeOut) { (anim, finished) in
             withDelay(0.12*animationSpeedFactor) {
                 completion?()
@@ -78,17 +78,3 @@ class CardDeckManager {
         allCardViews = [CardView]()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

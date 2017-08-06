@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class DataManager {
     
@@ -18,19 +19,35 @@ class DataManager {
         return Static.instance
     }
     
-    func writeGameHisToFile(arr: [GameHistory], _ filePath: String) {
+    func readJsonFromFile(fileName: String) -> JSON {
+        do {
+            guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else {
+                print("fail to read json:", fileName)
+                exit(0)
+            }
+            let url = URL(fileURLWithPath: path)
+            let data = try Data(contentsOf: url)
+            let json = JSON(data: data)
+            return json
+        } catch {
+            print("fail to write game record to disk")
+            exit(0)
+        }
+    }
+    
+    func writeGameHisToFile(_ arr: [GameHistory], _ filePath: String) {
         let content = NSMutableString()
         for his in arr {
-            content.appendString(gameHistoryToString(his))
+            content.append(gameHistoryToString(his))
         }
         do {
-            try content.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding)
+            try content.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8.rawValue)
         } catch {
             print("Exception: cannot write to file \(filePath) in \(#function)")
         }
     }
     
-    func gameHistoryToString(his: GameHistory) -> String {
+    func gameHistoryToString(_ his: GameHistory) -> String {
         return "\(his.handNumber) \(his.oldBalance) \(his.oldBet) \(his.handResult) \(his.newBet) \(his.newBalance) \(his.currentStreak)\n"
     }
 }

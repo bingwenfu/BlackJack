@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="17A264c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
-        <plugIn identifier="com.apple.MapKitIBPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -676,10 +678,12 @@
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W5V-IA-bgW">
                                 <rect key="frame" x="0.0" y="0.0" width="1000" height="675"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="initialBG" id="0ea-bd-Jt6"/>
                             </imageView>
                             <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hzb-3U-Aac" customClass="RoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="400" y="122" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" title="Start" bezelStyle="smallSquare" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="Uc0-9v-Unc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="22"/>
@@ -690,6 +694,7 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8KL-FP-yJq" customClass="RoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="400" y="53" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" title="Map" bezelStyle="smallSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="di9-WX-G7F">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="22"/>
@@ -719,10 +724,12 @@
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n8H-ph-3pf">
                                 <rect key="frame" x="0.0" y="0.0" width="329" height="433"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="gameBG2" id="4Cz-Nu-3bu"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rvw-K2-ym1">
                                 <rect key="frame" x="18" y="354" width="90" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Player Wins" id="5Lh-Hj-5Ws">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -730,7 +737,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UjK-8Z-WPs">
-                                <rect key="frame" x="280" y="273" width="31" height="19"/>
+                                <rect key="frame" x="279" y="273" width="32" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="N/A" id="afo-R2-Dss">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -738,7 +745,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aGO-ud-sPr">
-                                <rect key="frame" x="280" y="199" width="31" height="19"/>
+                                <rect key="frame" x="279" y="199" width="32" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="N/A" id="SpD-b8-OHh">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -746,7 +753,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fhf-2t-1Zz">
-                                <rect key="frame" x="280" y="172" width="31" height="19"/>
+                                <rect key="frame" x="279" y="172" width="32" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="N/A" id="q9I-bP-pMD">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -754,7 +761,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oBh-1w-mn4">
-                                <rect key="frame" x="280" y="145" width="31" height="19"/>
+                                <rect key="frame" x="279" y="145" width="32" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="N/A" id="knQ-ET-rkB">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -762,7 +769,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zkL-Sv-uFm">
-                                <rect key="frame" x="280" y="118" width="31" height="19"/>
+                                <rect key="frame" x="279" y="118" width="32" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="N/A" id="cgm-5i-Noz">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -771,6 +778,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zq8-hc-2v4">
                                 <rect key="frame" x="18" y="300" width="58" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="pushes" id="nxl-WH-5t6">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -779,6 +787,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gpR-nz-Obo">
                                 <rect key="frame" x="18" y="327" width="92" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dealer Wins" id="nMv-SK-FGp">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -787,6 +796,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rrz-bF-HVy">
                                 <rect key="frame" x="18" y="273" width="144" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Total Hands played" id="pgE-qc-iAX">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -795,6 +805,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="65a-fQ-NUw">
                                 <rect key="frame" x="18" y="199" width="96" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Player Busts" id="Oae-UN-t9e">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -803,6 +814,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gmI-CT-LKp">
                                 <rect key="frame" x="18" y="172" width="98" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dealer Busts" id="7IQ-zG-acp">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -811,6 +823,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iwB-09-UbS">
                                 <rect key="frame" x="18" y="145" width="124" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Player Blackjack" id="6Dq-1a-FU8">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -819,6 +832,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mlk-Qr-Zk6">
                                 <rect key="frame" x="18" y="118" width="131" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dealer BlackJack" id="inU-vp-eXj">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -827,6 +841,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="87W-X5-1Zj">
                                 <rect key="frame" x="18" y="43" width="155" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Longest Win Streaks" id="dbg-74-OYW">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -835,6 +850,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gt6-GV-ZP8">
                                 <rect key="frame" x="18" y="16" width="161" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Longest Lose Streaks" id="8Lz-bb-UQT">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -866,7 +882,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="heU-8U-KBI">
-                                <rect key="frame" x="280" y="43" width="31" height="19"/>
+                                <rect key="frame" x="279" y="43" width="32" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="N/A" id="jAH-J7-wUw">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -874,7 +890,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8y8-1K-Y08">
-                                <rect key="frame" x="280" y="16" width="31" height="19"/>
+                                <rect key="frame" x="279" y="16" width="32" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="N/A" id="xzF-DA-jvJ">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -882,7 +898,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="810-mh-1RJ">
-                                <rect key="frame" x="280" y="354" width="31" height="19"/>
+                                <rect key="frame" x="279" y="354" width="32" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="N/A" id="MHL-ta-GdG">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -890,7 +906,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sUH-LF-Yds">
-                                <rect key="frame" x="280" y="327" width="31" height="19"/>
+                                <rect key="frame" x="279" y="327" width="32" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="N/A" id="EKa-cb-hsj">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -898,7 +914,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bFN-gf-McE">
-                                <rect key="frame" x="280" y="300" width="31" height="19"/>
+                                <rect key="frame" x="279" y="300" width="32" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="N/A" id="IsY-Ob-Erf">
                                     <font key="font" metaFont="systemBold" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -991,6 +1007,7 @@
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4LP-Yp-PvC" customClass="GrayTransparentRoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="31" y="616" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="bec-jt-RRM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1001,7 +1018,8 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PSj-eP-dwe">
                                 <rect key="frame" x="45" y="74" width="70" height="80"/>
-                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="1E0DCD0B-25DF-4254-B7EB-758F521CDF58" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="cbK-BT-zSB">
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="7D641D7E-8A14-446B-A62A-9E1605A436F7" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="cbK-BT-zSB">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1011,6 +1029,7 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0SO-Uf-4i3">
                                 <rect key="frame" x="112" y="66" width="70" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="10" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="fWT-cN-h48">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1021,6 +1040,7 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="stl-yv-JAH">
                                 <rect key="frame" x="178" y="60" width="70" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="20" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="o5K-LE-UMX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1031,6 +1051,7 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAA-ab-YXz">
                                 <rect key="frame" x="311" y="53" width="70" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="100" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="wx3-yz-FqL">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1041,6 +1062,7 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-zk-6gf" customClass="RoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="881" y="77" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" title="Hit" bezelStyle="smallSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="0o4-Iu-QGK">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="15" name="Verdana-Bold"/>
@@ -1051,6 +1073,7 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XWO-wT-9MB" customClass="RoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="812" y="68" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" title="Stand" bezelStyle="smallSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="0yd-Co-nN0">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="15" name="Verdana-Bold"/>
@@ -1061,6 +1084,7 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NBf-ex-OtC">
                                 <rect key="frame" x="244" y="55" width="70" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="50" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="gy8-Pk-3ay">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1078,7 +1102,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WV1-sG-Rv3" customClass="RoundLabel" customModule="BlackJack" customModuleProvider="target">
-                                <rect key="frame" x="466" y="507" width="68" height="27"/>
+                                <rect key="frame" x="467" y="507" width="67" height="27"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="vFC-vY-i7R">
                                     <font key="font" metaFont="systemHeavy" size="22"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1111,6 +1135,7 @@
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a8i-2c-vI6" customClass="RoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="812" y="68" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" title="Bet 2x" bezelStyle="smallSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="TPX-of-tfg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="15" name="Verdana-Bold"/>
@@ -1121,6 +1146,7 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggn-H4-ryO" customClass="RoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="881" y="78" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" title="Deal" bezelStyle="smallSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="FUQ-T0-gfz">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="15" name="Verdana-Bold"/>
@@ -1131,6 +1157,7 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jFZ-Ew-Ht2" customClass="RoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="743" y="62" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="2pQ-m4-ROu">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <string key="title">Clear
@@ -1151,6 +1178,7 @@ bet</string>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GGo-bm-vB9" customClass="GrayTransparentRoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="91" y="616" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="only" alignment="center" alternateImage="mute" imageScaling="proportionallyDown" inset="2" id="c7T-Fj-oae">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1161,6 +1189,7 @@ bet</string>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C8K-Zl-3c0" customClass="GrayTransparentRoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="149" y="616" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="only" alignment="center" alternateImage="mute" imageScaling="proportionallyDown" inset="2" id="mVt-yK-2d5">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1171,6 +1200,7 @@ bet</string>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zsb-mI-hgr" customClass="RoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="673" y="57" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" title="All in" bezelStyle="smallSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="YO4-VO-Mr9">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="14" name="Verdana-Bold"/>
@@ -1181,10 +1211,12 @@ bet</string>
                             </button>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e4i-ze-9qx">
                                 <rect key="frame" x="433" y="120" width="134" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="att" id="Y6R-SI-65O"/>
                             </imageView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Brx-AA-Mow" customClass="RoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="744" y="57" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" title="Double" bezelStyle="smallSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="weU-jy-MFW">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="14" name="Verdana-Bold"/>
@@ -1193,6 +1225,15 @@ bet</string>
                                     <action selector="doubleDoneButtonClicked:" target="cKx-lg-Zi4" id="1RT-V3-hGZ"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gG-OM-BjW">
+                                <rect key="frame" x="646" y="178" width="323" height="265"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="l7m-dH-7Z8">
+                                    <font key="font" metaFont="systemSemibold" size="19"/>
+                                    <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="YUn-1L-iO1" firstAttribute="centerX" secondItem="iqF-HJ-4SO" secondAttribute="centerX" id="1Ka-S2-rze"/>
@@ -1221,6 +1262,7 @@ bet</string>
                     </view>
                     <connections>
                         <outlet property="allInButton" destination="Zsb-mI-hgr" id="jhi-Nv-150"/>
+                        <outlet property="autoPlayLabel" destination="6gG-OM-BjW" id="YHe-Fr-iTj"/>
                         <outlet property="balanceLabel" destination="YUn-1L-iO1" id="1mL-J8-cGG"/>
                         <outlet property="bet2xButton" destination="a8i-2c-vI6" id="eR8-Ug-iBw"/>
                         <outlet property="betLabel" destination="6QM-FE-omj" id="gCf-EJ-38c"/>
@@ -1259,9 +1301,11 @@ bet</string>
                         <subviews>
                             <mapView fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Utn-Q1-Ery">
                                 <rect key="frame" x="0.0" y="0.0" width="1000" height="675"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-tw-uFY" customClass="GrayTransparentRoundButton" customModule="BlackJack" customModuleProvider="target">
                                 <rect key="frame" x="20" y="615" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="WLP-IU-XpX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1272,9 +1316,11 @@ bet</string>
                             </button>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="reS-9R-UF8">
                                 <rect key="frame" x="77" y="618" width="530" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GQ0-JZ-OEC">
                                         <rect key="frame" x="-2" y="7" width="534" height="19"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="   In case you are bored of electronic game here is a list of real casinos   " id="v4h-pl-TB4">
                                             <font key="font" metaFont="systemMedium" size="16"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1298,268 +1344,271 @@ bet</string>
     <resources>
         <image name="10" width="595" height="842"/>
         <image name="100" width="595" height="842"/>
-        <image name="1E0DCD0B-25DF-4254-B7EB-758F521CDF58" width="595" height="842">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGQkNYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QDwcI
-ERYbHCUmJygwMzY8P1UkbnVsbNQJCgsMDQ4PEFYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVwc1dOU0Nv
-bG9ygA4SAMAAAIACgAzSEgkTFVpOUy5vYmplY3RzoRSAA4AL0hIJFxqiGBmABIAFgAoQANUdHh8gCSEb
-IiMkVk5TU2l6ZV8QD05TQml0c1BlclNhbXBsZV8QEE5TQ29sb3JTcGFjZU5hbWVZTlNQREZEYXRhgAaA
-B4AIgAlaezU5NSwgODQyfV8QGU5TQ2FsaWJyYXRlZFJHQkNvbG9yU3BhY2VPETk1JVBERi0xLjQKJeLj
-z9MKMSAwIG9iaiA8PC9Db2xvclNwYWNlL0RldmljZVJHQi9NYXNrIFswIDAgMCAwIDAgMCBdL1N1YnR5
-cGUvSW1hZ2UvSGVpZ2h0IDEzL0ZpbHRlci9GbGF0ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTMv
-TGVuZ3RoIDE0L0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnicY2AYBSMUAAAB+wABCmVuZHN0cmVh
-bQplbmRvYmoKMiAwIG9iaiA8PC9Db2xvclNwYWNlL0RldmljZUdyYXkvU3VidHlwZS9JbWFnZS9IZWln
-aHQgMTMvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9XaWR0aCAxMjgvTGVuZ3RoIDczL0Jp
-dHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnicY2AYBaNgpAKd7QNrv8b/gbWf4f4A2z+dzvZJGKDyE+hp
-uUDK6t/HUYU46GY5i8f69/+BQIduNiIDncmP/0NADaoEAD1IFjsKZW5kc3RyZWFtCmVuZG9iagozIDAg
-b2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlUkdCL1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDEzL0ZpbHRlci9G
-bGF0ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTI4L1NNYXNrIDIgMCBSL0xlbmd0aCAyOC9CaXRz
-UGVyQ29tcG9uZW50IDg+PnN0cmVhbQp4nO3BMQEAAADCoPVPbQo/oAAAAACAlwETgAABCmVuZHN0cmVh
-bQplbmRvYmoKNCAwIG9iaiA8PC9Db2xvclNwYWNlL0RldmljZUdyYXkvU3VidHlwZS9JbWFnZS9IZWln
-aHQgMTMvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9XaWR0aCAxMjgvTGVuZ3RoIDI3Mi9C
-aXRzUGVyQ29tcG9uZW50IDg+PnN0cmVhbQp4nGNgwAkEXGISchoaZs9fvh8MDFClJXDrpA4w+Y8KHFBk
-Wf5/vn94dXtFiAEPlezTSRBB4cvgtR9J9vXx5SUmlNgs4FCy+Pj3//9DUIXx2q+DKtlMrt0aObOvf4ca
-koMq9Rmf/S6okilkWv8d2ZD5qHLd7Q0pMQ4ODjoKChwYGl2O33+PpBUt/G0wNWAHKJ44TKLjWVQcYhoW
-nwb5ATXp8Pz+vrtAhzT7P++fnUGi/TCg4IIW/DFgE+/PDhAgyv77mxsCZMi0GyuYDPPU9/05InhVvt5f
-40PQkSSD20iR+vt4Ap4SgoXqdgMBR/du5LzzG38Q0ARweEyGB8Ju+lsPBiolu3+D7PfBowYAAaAUmQpl
-bmRzdHJlYW0KZW5kb2JqCjUgMCBvYmogPDwvQ29sb3JTcGFjZS9EZXZpY2VSR0IvU3VidHlwZS9JbWFn
-ZS9IZWlnaHQgMTMvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9XaWR0aCAxMjgvU01hc2sg
-NCAwIFIvTGVuZ3RoIDI4L0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7cExAQAAAMKg9U9tCj+g
-AAAAAICXAROAAAEKZW5kc3RyZWFtCmVuZG9iago2IDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlUkdC
-L01hc2sgWzAgMCAwIDAgMCAwIF0vU3VidHlwZS9JbWFnZS9IZWlnaHQgMTMvRmlsdGVyL0ZsYXRlRGVj
-b2RlL1R5cGUvWE9iamVjdC9XaWR0aCA5OC9MZW5ndGggMjYvQml0c1BlckNvbXBvbmVudCA4Pj5zdHJl
-YW0KeJztwQENAAAAwqD3T20PBxQAAAC8GQ7uAAEKZW5kc3RyZWFtCmVuZG9iago3IDAgb2JqIDw8L0Nv
-bG9yU3BhY2UvRGV2aWNlR3JheS9TdWJ0eXBlL0ltYWdlL0hlaWdodCAxMjgvRmlsdGVyL0ZsYXRlRGVj
-b2RlL1R5cGUvWE9iamVjdC9XaWR0aCA5OC9MZW5ndGggNTA4L0JpdHNQZXJDb21wb25lbnQgOD4+c3Ry
-ZWFtCnic7ZoRlwJRFMcfDAwEwcDAQhAEQRAEi2GwEAwEC8FCECwsLHTOQtAHWAyCIAiCoA8QDARBEARB
-EARBELzt3Vdri7+z7dn7+wDzO3Punfv+75YxiqLcKOCGADco/xK8sZK0zAoyG2t7IWno2gvrCiconq3Q
-waoRjbzBLkqUwtT3XnFuYorv1xhwfXt7jUUOU0QTr9hkMIX5kJ6qcQJjyitr+6TgMp4mKfppOyJaoNwl
-WVpQ3HGTUIgvH+A7Kcgu3RDpgSGh4SdhH1Q0T6IYgYOk6hWzv6143OOK0lUBlvuqABPCVUH2rCjI704U
-HfT5Ro9WRfmJcPzECuLUHoukoLh21yTwDmN6MsqHoCGYieINVDys5VZMlqIs4WBFliLxOQ00mKEoyMyc
-kTx7yIGK/FGWB+Stte2XRaBBSjHNk4ZoB+6JPFV486goyq+RabH3o+Blz+5PK+40WpAvUZAlcAIazKcz
-bMnjLpYTtQ0afM48kPEpe3CKLmgwr85wJLeawcYp0I1jyxn2MWgIN3glnqWd8ErM0dtd2y7r5PMvA7yq
-f2tQFOU+CZMJOgHj7tbaCWnIu/x3Ik9TM8XDmZymC9IQSjjLkYoxvrKpOUNKGkIJ4uhWqI8HzKozzElD
-4LrpjP70Jd3UIA0NfNsbnbeDJvsDYUHzpQLwBedWXx8KZW5kc3RyZWFtCmVuZG9iago4IDAgb2JqIDw8
-L0NvbG9yU3BhY2UvRGV2aWNlUkdCL1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDEyOC9GaWx0ZXIvRmxhdGVE
-ZWNvZGUvVHlwZS9YT2JqZWN0L1dpZHRoIDk4L1NNYXNrIDcgMCBSL0xlbmd0aCA1OS9CaXRzUGVyQ29t
-cG9uZW50IDg+PnN0cmVhbQp4nO3BAQ0AAADCoPdPbQ8HFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAM8GkwAAAQplbmRzdHJlYW0KZW5kb2JqCjkgMCBvYmogPDwvQ29sb3JTcGFjZS9EZXZp
-Y2VHcmF5L1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDEyOC9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2Jq
-ZWN0L1dpZHRoIDEyOC9MZW5ndGggMTgzL0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7dShcQJR
-FIbRFStWrKQAZAQFRCAoghIQiIgViIgIZhBICqAABJICKIASIiJWIBAIBCLiscyCQqCYizinge8X970s
-e6lyuDqn8rWNJ4p+aP5Bb/0Z2l+mtB3mYfnikBq/X1FHMU6t4yRmwfz/NiAdvouIAd3F6b5g/xOyoDM7
-3hfUEf3mW6r+2v4upp9l+ai+9gdR/eYhVnXaxOUb5fQjtA8AAAAAAAAAAAAAAAAA8I4uX3FI0gplbmRz
-dHJlYW0KZW5kb2JqCjEwIDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlUkdCL1N1YnR5cGUvSW1hZ2Uv
-SGVpZ2h0IDEyOC9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0L1dpZHRoIDEyOC9TTWFzayA5
-IDAgUi9MZW5ndGggNzAvQml0c1BlckNvbXBvbmVudCA4Pj5zdHJlYW0KeJztwTEBAAAAwqD1T20MH6AA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOBvwAAAAQplbmRzdHJl
-YW0KZW5kb2JqCjExIDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlR3JheS9TdWJ0eXBlL0ltYWdlL0hl
-aWdodCAxMjgvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9XaWR0aCAxMjgvTGVuZ3RoIDU4
-OC9CaXRzUGVyQ29tcG9uZW50IDg+PnN0cmVhbQp4nO2aHXcrURSGNwQGBgYCgQuFQqEwECgECoFC4EKh
-ECgEAoFioJC1AoFCsRAoFAKBC4VCoVAoBAqBQiFQCAQCgYGBc8/HTNa6P+DOA9nPH3jW7Dlnn/d8iPx/
-at233JQsKxD+Qzxc7eUmm19U7W9ke/nLVVK13fJYFP6mDsgt5+7TH9o1xm75+uxDnx5ocJ9OEA37oL3W
-/zFbYpoFfn+5uTaG7Cd/ik7zi7DHk7LNr84Afe+nsG9v4+rt6UfZ5qdE8VvlKvNOlN5Ou2UofY/qdU07
-9vIxN/HlwSxSzi6SXB/WMqPA/7u/ANrsnmhqOy2nP/p07e6S0l/ufLvdQbl2EBb6vIPYo3mRMk4RfVKs
-9C8NRN8qYs6Emf4XIWhkXcQu4uedWbcgvSSu/AskXwdON+aZbLySjiJSrygHRsTs6fbMMyzoOGzSMz1O
-f+dXHOxMaxgWvGNI3/VRb9eE9O0QN5igKXK8QX9+Ek5VbiB99B6SJqSXmdfPqH1uy+tfubB1Zefeitll
-BNLvnNljldSxnK8oyiEyOEH1zTy7BU92Ixc5XrkSTNC8J+c+7j5R+vjbh33sucI9W/00Q6svb2z1O2z1
-/dEmWP2xv0HGqp9snX9A6W3nt9utJXqp11lhgy+gJ8uKohwUMXqdJzLajMlDpsbOmGzKvdD1sWON/YNo
-7fxDSi89n7q4h3P+wewdpm/7hyzcff6Mzdx1/5CIe7g48kfsmF78fpt6y2Jx+g3Y/53/kdPLAh19lvQe
-HH2KoiiKoiiKUi1/AdiikmQKZW5kc3RyZWFtCmVuZG9iagoxMiAwIG9iaiA8PC9Db2xvclNwYWNlL0Rl
-dmljZVJHQi9TdWJ0eXBlL0ltYWdlL0hlaWdodCAxMjgvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9i
-amVjdC9XaWR0aCAxMjgvU01hc2sgMTEgMCBSL0xlbmd0aCA3MC9CaXRzUGVyQ29tcG9uZW50IDg+PnN0
-cmVhbQp4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAA4G/AAAABCmVuZHN0cmVhbQplbmRvYmoKMTMgMCBvYmogPDwvQ29sb3JTcGFjZS9EZXZp
-Y2VHcmF5L1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDEyOC9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2Jq
-ZWN0L1dpZHRoIDEzL0xlbmd0aCA4NC9CaXRzUGVyQ29tcG9uZW50IDg+PnN0cmVhbQp4nGNgGAWjYBSM
-glFAGmBB5kQgc1Yjc0ro4RZqgoYcGTib5f3//9cboByH/0CwH8ppBnFqoJzTII4BhC3xG8j+zgHhJIAk
-dkNVdYM4BWhaAM/MKc0KZW5kc3RyZWFtCmVuZG9iagoxNCAwIG9iaiA8PC9Db2xvclNwYWNlL0Rldmlj
-ZVJHQi9TdWJ0eXBlL0ltYWdlL0hlaWdodCAxMjgvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVj
-dC9XaWR0aCAxMy9TTWFzayAxMyAwIFIvTGVuZ3RoIDI4L0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFt
-Cnic7cExAQAAAMKg9U9tCj+gAAAAAICXAROAAAEKZW5kc3RyZWFtCmVuZG9iagoxNSAwIG9iaiA8PC9D
-b2xvclNwYWNlL0RldmljZUdyYXkvU3VidHlwZS9JbWFnZS9IZWlnaHQgMTI4L0ZpbHRlci9GbGF0ZURl
-Y29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTMvTGVuZ3RoIDMyMi9CaXRzUGVyQ29tcG9uZW50IDg+PnN0
-cmVhbQp4nOXTkXfDUBQG8AeBQmAwCBQKg8IgMBgUAoXBYDgYBAbDwWBQyDmF4aAQCASGhUChMAgE+gcU
-CoNCYDAYFAKBt37Zd3MuTHoGOTu79H7nnfdy7819xhjj1dbaXc80cbFf28X32kyBiHgFAuIT4JFesq7t
-2rThBlfmT0WUx5PwmFiislNiA3gEat5x7WDjjegDBXEOLIkASIkbYEbcAxNJALglZsA1keqmz4ER8bzZ
-ftiTX1TdfYRRlKTS9wWKGxBN2WdEonvQtOqSeARCuQ24I8Z6ckdATAyAjPCAleQDbAXlHpVDFDq5zFbl
-SiZkOOwdWnanIdm6YZyV0gZXT3NTue0TL4C85wc9wT6Qyw3VHvURlWNrrA/JpAe64T8ckulu/uyT/tK8
-Ta+Y+m057mHVdxz6uTrveifW8M2/iS9nwfKQCmVuZHN0cmVhbQplbmRvYmoKMTYgMCBvYmogPDwvQ29s
-b3JTcGFjZS9EZXZpY2VSR0IvU3VidHlwZS9JbWFnZS9IZWlnaHQgMTI4L0ZpbHRlci9GbGF0ZURlY29k
-ZS9UeXBlL1hPYmplY3QvV2lkdGggMTMvU01hc2sgMTUgMCBSL0xlbmd0aCAyOC9CaXRzUGVyQ29tcG9u
-ZW50IDg+PnN0cmVhbQp4nO3BMQEAAADCoPVPbQo/oAAAAACAlwETgAABCmVuZHN0cmVhbQplbmRvYmoK
-MTcgMCBvYmogPDwvQ29sb3JTcGFjZS9EZXZpY2VHcmF5L1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDEyOC9G
-aWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0L1dpZHRoIDEyOC9MZW5ndGggMTU2L0JpdHNQZXJD
-b21wb25lbnQgOD4+c3RyZWFtCnic7dWhHUFRGMbhG24QjCAYQDCAIAqCIAqGsIFoCAMIoiAKogFuEIwg
-3nA4uvyW51ng/4bv/E7TAAAAAAAAAAAAAAAAAPwzXSXr+64822C/fG3C/XO4349z/WsdsMv117UfvMDh
-O3yBh9q/5/qjvg6Y5wacav+S689qv0xyA261f8z1f0/wNYj12648trl80ywXyR8QSPkAJjhFOAplbmRz
-dHJlYW0KZW5kb2JqCjE4IDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlUkdCL1N1YnR5cGUvSW1hZ2Uv
-SGVpZ2h0IDEyOC9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0L1dpZHRoIDEyOC9TTWFzayAx
-NyAwIFIvTGVuZ3RoIDcwL0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7cExAQAAAMKg9U9tDB+g
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgb8AAAAEKZW5kc3Ry
-ZWFtCmVuZG9iagoxOSAwIG9iaiA8PC9Db2xvclNwYWNlL0RldmljZVJHQi9NYXNrIFswIDAgMCAwIDAg
-MCBdL1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDEyOC9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0
-L1dpZHRoIDEyOC9MZW5ndGggNzAvQml0c1BlckNvbXBvbmVudCA4Pj5zdHJlYW0KeJztwTEBAAAAwqD1
-T20MH6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOBvwAAAAQpl
-bmRzdHJlYW0KZW5kb2JqCjIwIDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlR3JheS9TdWJ0eXBlL0lt
-YWdlL0hlaWdodCAxMjgvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9XaWR0aCA5OC9MZW5n
-dGggNDMwL0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7doRd8NQGMbxC4VCIRAIDAKDQKEQKBQC
-hUKwEAgECoXCYFgbFAqFwaBQHAwGhUKhGCgMi4XhIFAoFO7y3ulg8j+nO32fD5DfyU2TvHl6jdForj5R
-tuiSxx9+WWunpNCvAbshBf9SC5+kYI5yEh4pbEXok8JchDEp5CI8k0IswpYUPBGOpGDklrMNUihFiEhh
-JUJCClMRMlLIauA8IYVwNAjJ42s0Gs1Nppn086JHCqG8gl5xYUcKHi4YFVT4N8IdLvD39L0I76TQE2FF
-Cs2wlyToJ4pGo9HcXLpPWRygAt/NuH4pJoUSr3Sl56tIwM0ye1JI8C+gsQgzUngRYUgKrrtvk0IlVSVZ
-GbuhtQQBk4qwJAX3B8cDKRS7k7UdUqgTFU1Y0Gg0mqtJkLVgYWQv6wk6FK/pMSM418CFnFjHeHPlFqkA
-gdZJFskHBX6RNiLkIOB+SRZfJHTTz57+JbUFOJHPpQU+EXfmFbxLw5jGYIbuZdFoNJq/5jGFH0f127NE
-N2qaGd26+RX99lwKcACvxM8MQ3bQrk46gF1M6E4h5QDzJsDHr1fhGwvmQTYKZW5kc3RyZWFtCmVuZG9i
-agoyMSAwIG9iaiA8PC9Db2xvclNwYWNlL0RldmljZVJHQi9TdWJ0eXBlL0ltYWdlL0hlaWdodCAxMjgv
-RmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9XaWR0aCA5OC9TTWFzayAyMCAwIFIvTGVuZ3Ro
-IDU5L0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7cEBDQAAAMKg909tDwcUAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzwaTAAABCmVuZHN0cmVhbQplbmRvYmoKMjIgMCBvYmogPDwv
-Q29sb3JTcGFjZS9EZXZpY2VHcmF5L1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDk4L0ZpbHRlci9GbGF0ZURl
-Y29kZS9UeXBlL1hPYmplY3QvV2lkdGggOTgvTGVuZ3RoIDM3NC9CaXRzUGVyQ29tcG9uZW50IDg+PnN0
-cmVhbQp4nO2YEXfDUBSAHwQGgcBgMAgUBoVBYDAIBALF4GAwKAQGg0Kg5xQGxcGgOCwMCoNCf8CgMCgE
-BoPBIBAIBO7eSzYb9junZ+d+P+B+577k3nffNWYfROJI9xLrb56dYAMKRl0KEWjYOsESFJi0FGlOSYPx
-JvUcFVhCnzYoikITrUNW4L9JnaGGpevZqyNOMO6unSdOENZOUB5jAv/VCdpzTGAW3RlNOUHWOsGLhwmG
-3Ueouas5eIcnMG/VCWaYwMT0RzAmqUR2ASgwZrCtz1CBLThySFWUw+eKLoHrtk5ggX2qjWCBvZYHsEDu
-MEHeCwpMMBU4g4nAk8sjnEGw7gU3lMBElYvfkFN87EYvupo/8Y7EVbLy30keYEHRSE7GD10jaoecIOte
-aLKjVo/+or/N5B5aJqQfffwvaKgIfhPYQI1oXPXxmxw6obiPL+UFE9/8rItkDu6vT+x/Wl5y8S23bQEv
-4D36iawoiqIoiqIoh8s3xYDu8wplbmRzdHJlYW0KZW5kb2JqCjIzIDAgb2JqIDw8L0NvbG9yU3BhY2Uv
-RGV2aWNlUkdCL1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDk4L0ZpbHRlci9GbGF0ZURlY29kZS9UeXBlL1hP
-YmplY3QvV2lkdGggOTgvU01hc2sgMjIgMCBSL0xlbmd0aCA1MS9CaXRzUGVyQ29tcG9uZW50IDg+PnN0
-cmVhbQp4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAnA3CMAAEKZW5k
-c3RyZWFtCmVuZG9iagoyNCAwIG9iaiA8PC9Db2xvclNwYWNlL0RldmljZUdyYXkvU3VidHlwZS9JbWFn
-ZS9IZWlnaHQgOTgvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9XaWR0aCAxMjgvTGVuZ3Ro
-IDQwMi9CaXRzUGVyQ29tcG9uZW50IDg+PnN0cmVhbQp4nO3VH5zCYBzH8eAgGAThweBgEBwEwUEwGBwM
-DgYHQRAEQTA4mAVBcDA4CIIgCIKDYBAE4UEQBEEQDILB4HfbunZ7gqf/e+T7xmd79dn2/CmTAQAAAAAA
-AAAAAAAAAAAAAAAAOF85J7JenFJHXF0d+0T+s6D664wiAxHxbHVBe4XU67mPVVx30v/+phvXv9N/+aD/
-F/d7JQH14PNH7++2n4TUA32iZVPgwfMyMx7S7Emizpgorvc8N9XXTVCajhcuNk1AW9Lt+JixeTe+3WEj
-5D+nHv1b8yaAaDGsq9mb9iU3USfHlLj9yE/f1PI3e4DRvr0dNxT+rckn3bxfVJPVepMd2R2yi452/Lsm
-+6Sek80VtYr5NZqHU+2xlxRaD2vySb/SXyX67FrU3Lkz6tqW1aiE2FmsecyTH8zdae2dR6M12S2YLbtQ
-K0yBZN7Fa/d4wWgNNhN2zOT1DfZi9cp+5GCf2Lx+OR5fT4ft+pFVfpG2z+kry8m426rphdseHay8XCrr
-4dozLcu6z3/2L66GWtQKZW5kc3RyZWFtCmVuZG9iagoyNSAwIG9iaiA8PC9Db2xvclNwYWNlL0Rldmlj
-ZVJHQi9TdWJ0eXBlL0ltYWdlL0hlaWdodCA5OC9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0
-L1dpZHRoIDEyOC9TTWFzayAyNCAwIFIvTGVuZ3RoIDU5L0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFt
-Cnic7cEBDQAAAMKg909tDwcUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzwaTAAAB
-CmVuZHN0cmVhbQplbmRvYmoKMjYgMCBvYmogPDwvQ29sb3JTcGFjZS9EZXZpY2VHcmF5L1N1YnR5cGUv
-SW1hZ2UvSGVpZ2h0IDk4L0ZpbHRlci9GbGF0ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTI4L0xl
-bmd0aCA1MzYvQml0c1BlckNvbXBvbmVudCA4Pj5zdHJlYW0KeJztmpF7QlEYhw8EwYUguBAEgyAYBIMg
-GATDwWBwIQiCIAgGe54gGAyCQRBeCIJBEATBYBAEwSAIgmBwITjw7Zxz2/bsH9h74fwwed/nnnO/853v
-ppRPdhI8BiQ+2suAo1feRCQpYfzi0fBlhvFVx/LlGuPnNpa/47ZgQ1uBEcZXY8vXFxg/2FuBeQ4TaLoV
-aGF8NRO2CIRHeAXuLf9UxfjqVWRV5vAq/GhzT9+Gpfv4+GQmcCkaDUl8uBS54/C1nT0Kaxj/2jVDhzIm
-0HYXgnUeE5g6gQUmkF84gSn2FgZbJzDBBCqfTqBP8VXjJOyV4Na9hdLABCKN7gAjIPKCnkP9ge+JfXyy
-kZDrB2wKbytuPGNaYtOT7rnxSC52A6obil/aCdsQlNOOSGJqFwZxKrAOIQH1lAocsUl9lLZEuksJ1A/p
-I8BG9aWV4/covsrbTwVLsi2KkgNZh83VpI7ifbIV+oownKOvQ+Uknz3wGczdmXhF4dNRlcgMWoTL9Vkg
-eWAWIddNzgb7iDEIR/pssIY6k9rmLKCLjIC6c59v5RnCK1UcnMweLGB80xq9kH/isamgf2LKXp4vUXzT
-FIQWODNwM/xkTN3Zq99VcdNDzqaB/ERPW0BlaMT6VyHp/L+ACvu7HwFoclKfpN8xuNKcj17NOsQU3qbU
-fb/9+0uEePxmy+ILmuVHwvLHMP+CG+D4+Jh8ASlpZfsKZW5kc3RyZWFtCmVuZG9iagoyNyAwIG9iaiA8
-PC9Db2xvclNwYWNlL0RldmljZVJHQi9TdWJ0eXBlL0ltYWdlL0hlaWdodCA5OC9GaWx0ZXIvRmxhdGVE
-ZWNvZGUvVHlwZS9YT2JqZWN0L1dpZHRoIDEyOC9TTWFzayAyNiAwIFIvTGVuZ3RoIDU5L0JpdHNQZXJD
-b21wb25lbnQgOD4+c3RyZWFtCnic7cEBDQAAAMKg909tDwcUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAzwaTAAABCmVuZHN0cmVhbQplbmRvYmoKMjggMCBvYmogPDwvQ29sb3JTcGFjZS9E
-ZXZpY2VSR0IvTWFzayBbMCAwIDAgMCAwIDAgXS9TdWJ0eXBlL0ltYWdlL0hlaWdodCA5OC9GaWx0ZXIv
-RmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0L1dpZHRoIDEzL0xlbmd0aCAyNi9CaXRzUGVyQ29tcG9uZW50
-IDg+PnN0cmVhbQp4nO3BAQ0AAADCoPdPbQ8HFAAAALwZDu4AAQplbmRzdHJlYW0KZW5kb2JqCjI5IDAg
-b2JqIDw8L0ZpbHRlci9GbGF0ZURlY29kZS9MZW5ndGggMzY5Nj4+c3RyZWFtCnic7VpNjyU7Dd3fX1G/
-oEhi52vPConFrFggVhfxAHWDhg1/n3OOU9VV3dNP6A2zQKDRqNt9E9tx7OOP3K+Pr4+0DS/bK36m7eVR
-Zz1/8u8vjz8/fvf42yNv/3yU7TdY9ddHTttvH7//Q9r+qO09t93BgFvi99ieS90bfk+X347PD6b894+f
-HmWO3fvJKVvdS15k2Uff6nD+Rb97yXv27fkQVerYU9/WFkoaY1v8FvV8eMt7Lwddp++pHTsXdXJd9JK4
-di5Vrmo+D61LnXvrULukuedx0NnaPjazvM+2iFNGkDWn3Wxb2+ooeyuHjEU9Hzb63utBe0vksHYu6mS7
-aMms29q51Lkr+3z86fHldntvt3S9u+udrjvLMDStNvY+sc9H3kc+6JeDLlb2mkGv9e/pc31w/QoLbfRA
-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
-oMktyJmjl5tYKAZv5JgYeyNCivqK6lqtvp+vT0mhHwVPrR7vFvwUGFBrX185KKrK+TmdocQXJnBPfLoz
-jV/Jt/oHuTIIYosrqoo4GCQwvaIgKVG4J+bDikjn1HyoiahNBmapDsioBBDFCUp5WghHD+jlFB3nYJPW
-NGPvRXrTtje57FIUmNxbVLok9WOVrUhT/hWnQfdnquZnPcZMtl4peo2+i+0QDQIk06NpfOOCyKAEmps0
-1lT6LpX2KEmVDnmPqf4v6WkUzGdXU6ej1y6XZ3c4OWCTtUsWG47z9B7OLo83xSpBe1GYG3k1NkUlhaOv
-bvQmly1sUcB39WXoALvMxoncZAsrKKSkFGVaGnqSnXpd72qp6phrokLLgNRTnoovfjmEL1Isiehb5JM/
-SJU9mOBMywsRjN1/C94q0go9jO8o0dsDGvVUbOqzOOSIR+YZHX9mdcOHZItRgTSqcKP1nZkpLfN2l/rU
-O1nXxsRwYTFNxAqhHGzQzLPwYBpsxFt2fNWAUDP1jZtRNFDpwjc4TWNpXIhnsx11cqna2tp7qTLGwmyW
-ivpuhCs2ALyabbF9x8U3uAyfVxEkyBotKQRL3BGpeKlkud2khgo8zgVkR32RoQk3K9IRJ2NXqTHzGlU7
-EyOW7VIOTuxYsr59weOyboVH1nV43S8fqTK0UPnKWRv8V2SJvguWaYkmYUvWTPrGzptUGYPTgPjq09D3
-v2JKKN5jTQmRChsChv08JxguqpxPqIvilHDS8ot+OWhaNiaOXO9X2vStiaApSVeqTXe9vuOrXsfolB0o
-byOvrmrRerVqOmhXe/GOZrkSkNE1LmXdw6FR16xSSZtuUaImgu3kFUGOA20Q7pxQc+DK8XrRVpyMgxce
-/tDq+U7L/67Xsn/nK5hf9O9fwasd/wplbmRzdHJlYW0KZW5kb2JqCjMxIDAgb2JqPDwvQ29udGVudHMg
-MjkgMCBSL1R5cGUvUGFnZS9SZXNvdXJjZXM8PC9Qcm9jU2V0IFsvUERGIC9UZXh0IC9JbWFnZUIgL0lt
-YWdlQyAvSW1hZ2VJXS9YT2JqZWN0PDwvaW1nOSAxMCAwIFIvaW1nOCA5IDAgUi9pbWc3IDggMCBSL2lt
-ZzYgNyAwIFIvaW1nNSA2IDAgUi9pbWc0IDUgMCBSL2ltZzI2IDI3IDAgUi9pbWcyNyAyOCAwIFIvaW1n
-MjQgMjUgMCBSL2ltZzI1IDI2IDAgUi9pbWcyMiAyMyAwIFIvaW1nMjMgMjQgMCBSL2ltZzIwIDIxIDAg
-Ui9pbWcyMSAyMiAwIFIvaW1nMTkgMjAgMCBSL2ltZzE3IDE4IDAgUi9pbWcxOCAxOSAwIFIvaW1nMTUg
-MTYgMCBSL2ltZzE2IDE3IDAgUi9pbWczIDQgMCBSL2ltZzEzIDE0IDAgUi9pbWcyIDMgMCBSL2ltZzE0
-IDE1IDAgUi9pbWcxIDIgMCBSL2ltZzExIDEyIDAgUi9pbWcwIDEgMCBSL2ltZzEyIDEzIDAgUi9pbWcx
-MCAxMSAwIFI+Pj4+L1BhcmVudCAzMCAwIFIvTWVkaWFCb3hbMCAwIDU5NSA4NDJdPj4KZW5kb2JqCjMw
-IDAgb2JqPDwvS2lkc1szMSAwIFJdL1R5cGUvUGFnZXMvQ291bnQgMT4+CmVuZG9iagozMiAwIG9iajw8
-L1R5cGUvQ2F0YWxvZy9QYWdlcyAzMCAwIFI+PgplbmRvYmoKMzMgMCBvYmo8PC9Nb2REYXRlKEQ6MjAx
-NjA0MDUyMTQ5MDVaKS9DcmVhdG9yKGh0dHA6Ly93d3cuZmlsZWZvcm1hdC5pbmZvL2NvbnZlcnQvaW1h
-Z2Uvc3ZnMnBkZi5odG0pL0NyZWF0aW9uRGF0ZShEOjIwMTYwNDA1MjE0OTA1WikvUHJvZHVjZXIoaVRl
-eHQxLjIuMyBieSBsb3dhZ2llLmNvbSBcKGJhc2VkIG9uIGl0ZXh0LXBhdWxvLTE1MlwpKT4+CmVuZG9i
-agp4cmVmCjAgMzQKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDE1IDAwMDAwIG4gCjAwMDAwMDAy
-MDEgMDAwMDAgbiAKMDAwMDAwMDQyOCAwMDAwMCBuIAowMDAwMDAwNjIxIDAwMDAwIG4gCjAwMDAwMDEw
-NDggMDAwMDAgbiAKMDAwMDAwMTI0MSAwMDAwMCBuIAowMDAwMDAxNDM5IDAwMDAwIG4gCjAwMDAwMDIx
-MDIgMDAwMDAgbiAKMDAwMDAwMjMyNiAwMDAwMCBuIAowMDAwMDAyNjY1IDAwMDAwIG4gCjAwMDAwMDI5
-MDIgMDAwMDAgbiAKMDAwMDAwMzY0NyAwMDAwMCBuIAowMDAwMDAzODg1IDAwMDAwIG4gCjAwMDAwMDQx
-MjQgMDAwMDAgbiAKMDAwMDAwNDMxOSAwMDAwMCBuIAowMDAwMDA0Nzk3IDAwMDAwIG4gCjAwMDAwMDQ5
-OTIgMDAwMDAgbiAKMDAwMDAwNTMwNSAwMDAwMCBuIAowMDAwMDA1NTQzIDAwMDAwIG4gCjAwMDAwMDU3
-ODggMDAwMDAgbiAKMDAwMDAwNjM3NCAwMDAwMCBuIAowMDAwMDA2NjAwIDAwMDAwIG4gCjAwMDAwMDcx
-MjkgMDAwMDAgbiAKMDAwMDAwNzM0NiAwMDAwMCBuIAowMDAwMDA3OTA0IDAwMDAwIG4gCjAwMDAwMDgx
-MzAgMDAwMDAgbiAKMDAwMDAwODgyMiAwMDAwMCBuIAowMDAwMDA5MDQ4IDAwMDAwIG4gCjAwMDAwMDky
-NDcgMDAwMDAgbiAKMDAwMDAxMzUxMCAwMDAwMCBuIAowMDAwMDEzMDEyIDAwMDAwIG4gCjAwMDAwMTM1
-NjIgMDAwMDAgbiAKMDAwMDAxMzYwOCAwMDAwMCBuIAp0cmFpbGVyCjw8L0luZm8gMzMgMCBSL0lEIFs8
-YjM1ODJjNmNlZmFjZjM4Y2E4NzY1NzUwNDVkNDgyZDE+PGIzNTgyYzZjZWZhY2YzOGNhODc2NTc1MDQ1
-ZDQ4MmQxPl0vUm9vdCAzMiAwIFIvU2l6ZSAzND4+CnN0YXJ0eHJlZgoxMzgxNAolJUVPRgrSKSorLFok
-Y2xhc3NuYW1lWCRjbGFzc2VzXU5TUERGSW1hZ2VSZXCjLS4vXU5TUERGSW1hZ2VSZXBaTlNJbWFnZVJl
-cFhOU09iamVjdNIpKjEyV05TQXJyYXmiMS/SKSo0NV5OU011dGFibGVBcnJheaM0MS/TNzgJOTo7V05T
-V2hpdGVcTlNDb2xvclNwYWNlRDAgMAAQA4AN0ikqPT5XTlNDb2xvcqI9L9IpKkBBV05TSW1hZ2WiQC9f
-EA9OU0tleWVkQXJjaGl2ZXLRREVUcm9vdIABAAgAEQAaACMALQAyADcASQBPAFgAXwBsAHMAewB9AIIA
-hACGAIsAlgCYAJoAnAChAKQApgCoAKoArAC3AL4A0ADjAO0A7wDxAPMA9QEAARw6VTpaOmU6bjp8OoA6
-jjqZOqI6pzqvOrI6tzrGOso60TrZOuY66zrtOu869Dr8Ov87BDsMOw87ITskOykAAAAAAAACAQAAAAAA
-AABGAAAAAAAAAAAAAAAAAAA7Kw
-</mutableData>
-        </image>
         <image name="20" width="595" height="842"/>
         <image name="50" width="595" height="842"/>
+        <image name="7D641D7E-8A14-446B-A62A-9E1605A436F7" width="595" height="842">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGU1RYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
+ERYbHCgpKi41OT1CRUhNUFUkbnVsbNQJCgsMDQ4PEFYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVwc1dO
+U0NvbG9ygBESAMAAAIACgA/SEgkTFVpOUy5vYmplY3RzoRSAA4AO0hIJFxqiGBmABIAFgA0QANcdCR4f
+ICEiIyQlJhsbJ1ZOU1NpemVZTlNQREZEYXRhXxAQTlNDb2xvclNwYWNlTmFtZV8QGU5TSW50ZXJuYWxM
+YXlvdXREaXJlY3Rpb25fEA9OU0JpdHNQZXJTYW1wbGVcTlNDb2xvclNwYWNlgAaADIAKgAeACFp7NTk1
+LCA4NDJ9XxAZTlNDYWxpYnJhdGVkUkdCQ29sb3JTcGFjZdIrCSwtVE5TSUQQAYAJ0i8wMTJaJGNsYXNz
+bmFtZVgkY2xhc3Nlc1xOU0NvbG9yU3BhY2WiMzRcTlNDb2xvclNwYWNlWE5TT2JqZWN00jYJNzhXTlMu
+ZGF0YU8ROTUlUERGLTEuNAol4uPP0woxIDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlUkdCL01hc2sg
+WzAgMCAwIDAgMCAwIF0vU3VidHlwZS9JbWFnZS9IZWlnaHQgMTMvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5
+cGUvWE9iamVjdC9XaWR0aCAxMy9MZW5ndGggMTQvQml0c1BlckNvbXBvbmVudCA4Pj5zdHJlYW0KeJxj
+YBgFIxQAAAH7AAEKZW5kc3RyZWFtCmVuZG9iagoyIDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlR3Jh
+eS9TdWJ0eXBlL0ltYWdlL0hlaWdodCAxMy9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0L1dp
+ZHRoIDEyOC9MZW5ndGggNzMvQml0c1BlckNvbXBvbmVudCA4Pj5zdHJlYW0KeJxjYBgFo2CkAp3tA2u/
+xv+BtZ/h/gDbP53O9kkYoPIT6Gm5QMrq38dRhTjoZjmLx/r3/4FAh242IgOdyY//Q0ANqgQAPUgWOwpl
+bmRzdHJlYW0KZW5kb2JqCjMgMCBvYmogPDwvQ29sb3JTcGFjZS9EZXZpY2VSR0IvU3VidHlwZS9JbWFn
+ZS9IZWlnaHQgMTMvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9XaWR0aCAxMjgvU01hc2sg
+MiAwIFIvTGVuZ3RoIDI4L0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7cExAQAAAMKg9U9tCj+g
+AAAAAICXAROAAAEKZW5kc3RyZWFtCmVuZG9iago0IDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlR3Jh
+eS9TdWJ0eXBlL0ltYWdlL0hlaWdodCAxMy9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0L1dp
+ZHRoIDEyOC9MZW5ndGggMjcyL0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnicY2DACQRcYhJyGhpm
+z1++HwwMUKUlcOukDjD5jwocUGRZ/n++f3h1e0WIAQ+V7NNJEEHhy+C1H0n29fHlJSaU2CzgULL4+Pf/
+/0NQhfHar4Mq2Uyu3Ro5s69/hxqSgyr1GZ/9LqiSKWRa/x3ZkPmoct3tDSkxDg4OOgoKHBgaXY7ff4+k
+FS38bTA1YAconjhMouNZVBxiGhafBvkBNenw/P6+u0CHNPs/75+dQaL9MKDgghb8MWAT788OECDK/vub
+GwJkyLQbK5gM89T3/TkieFW+3l/jQ9CRJIPbSJH6+3gCnhKChep2AwFH927kvPMbfxDQBHB4TIYHwm76
+Ww8GKiW7f4Ps98GjBgABoBSZCmVuZHN0cmVhbQplbmRvYmoKNSAwIG9iaiA8PC9Db2xvclNwYWNlL0Rl
+dmljZVJHQi9TdWJ0eXBlL0ltYWdlL0hlaWdodCAxMy9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2Jq
+ZWN0L1dpZHRoIDEyOC9TTWFzayA0IDAgUi9MZW5ndGggMjgvQml0c1BlckNvbXBvbmVudCA4Pj5zdHJl
+YW0KeJztwTEBAAAAwqD1T20KP6AAAAAAgJcBE4AAAQplbmRzdHJlYW0KZW5kb2JqCjYgMCBvYmogPDwv
+Q29sb3JTcGFjZS9EZXZpY2VSR0IvTWFzayBbMCAwIDAgMCAwIDAgXS9TdWJ0eXBlL0ltYWdlL0hlaWdo
+dCAxMy9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0L1dpZHRoIDk4L0xlbmd0aCAyNi9CaXRz
+UGVyQ29tcG9uZW50IDg+PnN0cmVhbQp4nO3BAQ0AAADCoPdPbQ8HFAAAALwZDu4AAQplbmRzdHJlYW0K
+ZW5kb2JqCjcgMCBvYmogPDwvQ29sb3JTcGFjZS9EZXZpY2VHcmF5L1N1YnR5cGUvSW1hZ2UvSGVpZ2h0
+IDEyOC9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0L1dpZHRoIDk4L0xlbmd0aCA1MDgvQml0
+c1BlckNvbXBvbmVudCA4Pj5zdHJlYW0KeJztmhGXAlEUxx8MDATBwMBCEARBEASLYbAQDAQLwUIQLCws
+dM5C0AdYDIIgCIKgDxAMBEEQBEEQBEEQvO3dV2uLv7Pt2fv7APM7c+6d+/7vljGKotwo4IYANyj/Eryx
+krTMCjIba3shaejaC+sKJyierdDBqhGNvMEuSpTC1PdecW5iiu/XGHB9e3uNRQ5TRBOv2GQwhfmQnqpx
+AmPKK2v7pOAyniYp+mk7Ilqg3CVZWlDccZNQiC8f4DspyC7dEOmBIaHhJ2EfVDRPohiBg6TqFbO/rXjc
+44rSVQGW+6oAE8JVQfasKMjvThQd9PlGj1ZF+Ylw/MQK4tQei6SguHbXJPAOY3oyyoegIZiJ4g1UPKzl
+VkyWoizhYEWWIvE5DTSYoSjIzJyRPHvIgYr8UZYH5K217ZdFoEFKMc2ThmgH7ok8VXjzqCjKr5Fpsfej
+4GXP7k8r7jRakC9RkCVwAhrMpzNsyeMulhO1DRp8zjyQ8Sl7cIouaDCvznAkt5rBxinQjWPLGfYxaAg3
+eCWepZ3wSszR213bLuvk8y8DvKp/a1AU5T4Jkwk6AePu1toJaci7/HciT1MzxcOZnKYL0hBKOMuRijG+
+sqk5Q0oaQgni6FaojwfMqjPMSUPguumM/vQl3dQgDQ182xudt4Mm+wNhQfOlAvAF51ZfHwplbmRzdHJl
+YW0KZW5kb2JqCjggMCBvYmogPDwvQ29sb3JTcGFjZS9EZXZpY2VSR0IvU3VidHlwZS9JbWFnZS9IZWln
+aHQgMTI4L0ZpbHRlci9GbGF0ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggOTgvU01hc2sgNyAwIFIv
+TGVuZ3RoIDU5L0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7cEBDQAAAMKg909tDwcUAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzwaTAAABCmVuZHN0cmVhbQplbmRvYmoKOSAwIG9i
+aiA8PC9Db2xvclNwYWNlL0RldmljZUdyYXkvU3VidHlwZS9JbWFnZS9IZWlnaHQgMTI4L0ZpbHRlci9G
+bGF0ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTI4L0xlbmd0aCAxODMvQml0c1BlckNvbXBvbmVu
+dCA4Pj5zdHJlYW0KeJzt1KFxAlEUhtEVK1aspABkBAVEICiCEhCIiBWIiAhmEEgKoAAEkgIogBIiIlYg
+EAgEIuKxzIJCoJiLOKeB7xf3vSx7qXK4OqfytY0nin5o/kFv/RnaX6a0HeZh+eKQGr9fUUcxTq3jJGbB
+/P82IB2+i4gB3cXpvmD/E7KgMzveF9QR/eZbqv7a/i6mn2X5qL72B1H95iFWddrE5Rvl9CO0DwAAAAAA
+AAAAAAAAAADwji5fcUjSCmVuZHN0cmVhbQplbmRvYmoKMTAgMCBvYmogPDwvQ29sb3JTcGFjZS9EZXZp
+Y2VSR0IvU3VidHlwZS9JbWFnZS9IZWlnaHQgMTI4L0ZpbHRlci9GbGF0ZURlY29kZS9UeXBlL1hPYmpl
+Y3QvV2lkdGggMTI4L1NNYXNrIDkgMCBSL0xlbmd0aCA3MC9CaXRzUGVyQ29tcG9uZW50IDg+PnN0cmVh
+bQp4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAA4G/AAAABCmVuZHN0cmVhbQplbmRvYmoKMTEgMCBvYmogPDwvQ29sb3JTcGFjZS9EZXZpY2VH
+cmF5L1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDEyOC9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0
+L1dpZHRoIDEyOC9MZW5ndGggNTg4L0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7ZoddytRFIY3
+BAYGBgKBC4VCoTAQKAQKgULgQqEQKAQCgWKgkLUCgUKxECgUAoELhUKhUCgECoFCIVAIBAKBgYFzz8dM
+1ro/4M4D2c8feNbsOWef93yI/H9q3bfclCwrEP5DPFzt5SabX1Ttb2R7+ctVUrXd8lgU/qYOyC3n7tMf
+2jXGbvn67EOfHmhwn04QDfugvdb/MVtimgV+f7m5NobsJ3+KTvOLsMeTss2vzgB976ewb2/j6u3pR9nm
+p0TxW+Uq806U3k67ZSh9j+p1TTv28jE38eXBLFLOLpJcH9Yyo8D/u78A2uyeaGo7Lac/+nTt7pLSX+58
+u91BuXYQFvq8g9ijeZEyThF9Uqz0Lw1E3ypizoSZ/hchaGRdxC7i551ZtyC9JK78CyRfB0435plsvJKO
+IlKvKAdGxOzp9swzLOg4bNIzPU5/51cc7ExrGBa8Y0jf9VFv14T07RA3mKApcrxBf34STlVuIH30HpIm
+pJeZ18+ofW7L61+5sHVl596K2WUE0u+c2WOV1LGcryjKITI4QfXNPLsFT3YjFzleuRJM0Lwn5z7uPlH6
++NuHfey5wj1b/TRDqy9vbPU7bPX90SZY/bG/Qcaqn2ydf0Dpbee3260leqnXWWGDL6Any4qiHBQxep0n
+MtqMyUOmxs6YbMq90PWxY439g2jt/ENKLz2furiHc/7B7B2mb/uHLNx9/ozN3HX/kIh7uDjyR+yYXvx+
+m3rLYnH6Ddj/nf+R08sCHX2W9B4cfYqiKIqiKIpSLX8B2KKSZAplbmRzdHJlYW0KZW5kb2JqCjEyIDAg
+b2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlUkdCL1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDEyOC9GaWx0ZXIv
+RmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0L1dpZHRoIDEyOC9TTWFzayAxMSAwIFIvTGVuZ3RoIDcwL0Jp
+dHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7cExAQAAAMKg9U9tDB+gAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgb8AAAAEKZW5kc3RyZWFtCmVuZG9iagoxMyAwIG9i
+aiA8PC9Db2xvclNwYWNlL0RldmljZUdyYXkvU3VidHlwZS9JbWFnZS9IZWlnaHQgMTI4L0ZpbHRlci9G
+bGF0ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTMvTGVuZ3RoIDg0L0JpdHNQZXJDb21wb25lbnQg
+OD4+c3RyZWFtCnicY2AYBaNgFIyCUUAaYEHmRCBzViNzSujhFmqChhwZOJvl/f//1xugHIf/QLAfymkG
+cWqgnNMgjgGELfEbyP7OAeEkgCR2Q1V1gzgFaFoAz8wpzQplbmRzdHJlYW0KZW5kb2JqCjE0IDAgb2Jq
+IDw8L0NvbG9yU3BhY2UvRGV2aWNlUkdCL1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDEyOC9GaWx0ZXIvRmxh
+dGVEZWNvZGUvVHlwZS9YT2JqZWN0L1dpZHRoIDEzL1NNYXNrIDEzIDAgUi9MZW5ndGggMjgvQml0c1Bl
+ckNvbXBvbmVudCA4Pj5zdHJlYW0KeJztwTEBAAAAwqD1T20KP6AAAAAAgJcBE4AAAQplbmRzdHJlYW0K
+ZW5kb2JqCjE1IDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlR3JheS9TdWJ0eXBlL0ltYWdlL0hlaWdo
+dCAxMjgvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9XaWR0aCAxMy9MZW5ndGggMzIyL0Jp
+dHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic5dORd8NQFAbwB4FCYDAIFAqDwiAwGBQChcFgOBgEBsPB
+YFDIOYXhoBAIBIaFQKEwCAT6BxQKg0JgMBgUAoG3ftl3cy5MegY5O7v0fued93LvzX3GGOPV1tpdzzRx
+sV/bxffaTIGIeAUC4hPgkV6yru3atOEGV+ZPRZTHk/CYWKKyU2IDeARq3nHtYOON6AMFcQ4siQBIiRtg
+RtwDE0kAuCVmwDWR6qbPgRHxvNl+2JNfVN19hFGUpNL3BYobEE3ZZ0Sie9C06pJ4BEK5DbgjxnpyR0BM
+DICM8ICV5ANsBeUelUMUOrnMVuVKJmQ47B1adqch2bphnJXSBldPc1O57RMvgLznBz3BPpDLDdUe9RGV
+Y2usD8mkB7rhPxyS6W7+7JP+0rxNr5j6bTnuYdV3HPq5Ou96J9bwzb+JL2fB8pAKZW5kc3RyZWFtCmVu
+ZG9iagoxNiAwIG9iaiA8PC9Db2xvclNwYWNlL0RldmljZVJHQi9TdWJ0eXBlL0ltYWdlL0hlaWdodCAx
+MjgvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9XaWR0aCAxMy9TTWFzayAxNSAwIFIvTGVu
+Z3RoIDI4L0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7cExAQAAAMKg9U9tCj+gAAAAAICXAROA
+AAEKZW5kc3RyZWFtCmVuZG9iagoxNyAwIG9iaiA8PC9Db2xvclNwYWNlL0RldmljZUdyYXkvU3VidHlw
+ZS9JbWFnZS9IZWlnaHQgMTI4L0ZpbHRlci9GbGF0ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTI4
+L0xlbmd0aCAxNTYvQml0c1BlckNvbXBvbmVudCA4Pj5zdHJlYW0KeJzt1aEdQVEYxuEbbhCMIBhAMIAg
+CoIgCoawgWgIAwiiIAqiAW4QjCDecDi6/JbnWeD/hu/8TtMAAAAAAAAAAAAAAAAA/DNdJev7rjzbYL98
+bcL9c7jfj3P9ax2wy/XXtR+8wOE7fIGH2r/n+qO+DpjnBpxq/5Lrz2q/THIDbrV/zPV/T/A1iPXbrjy2
+uXzTLBfJHxBI+QAmOEU4CmVuZHN0cmVhbQplbmRvYmoKMTggMCBvYmogPDwvQ29sb3JTcGFjZS9EZXZp
+Y2VSR0IvU3VidHlwZS9JbWFnZS9IZWlnaHQgMTI4L0ZpbHRlci9GbGF0ZURlY29kZS9UeXBlL1hPYmpl
+Y3QvV2lkdGggMTI4L1NNYXNrIDE3IDAgUi9MZW5ndGggNzAvQml0c1BlckNvbXBvbmVudCA4Pj5zdHJl
+YW0KeJztwTEBAAAAwqD1T20MH6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAOBvwAAAAQplbmRzdHJlYW0KZW5kb2JqCjE5IDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNl
+UkdCL01hc2sgWzAgMCAwIDAgMCAwIF0vU3VidHlwZS9JbWFnZS9IZWlnaHQgMTI4L0ZpbHRlci9GbGF0
+ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTI4L0xlbmd0aCA3MC9CaXRzUGVyQ29tcG9uZW50IDg+
+PnN0cmVhbQp4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAA4G/AAAABCmVuZHN0cmVhbQplbmRvYmoKMjAgMCBvYmogPDwvQ29sb3JTcGFjZS9E
+ZXZpY2VHcmF5L1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDEyOC9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9Y
+T2JqZWN0L1dpZHRoIDk4L0xlbmd0aCA0MzAvQml0c1BlckNvbXBvbmVudCA4Pj5zdHJlYW0KeJzt2hF3
+w1AYxvELhUIhEAgMAoNAoRAoFAKFQrAQCAQKhcJgWBsUCoXBoFAcDAaFQqEYKAyLheEgUCgU7vLe6WDy
+P6c7fZ8PkN/JTZO8eXqN0WiuPlG26JLHH35Za6ek0K8BuyEF/1ILn6RgjnISHilsReiTwlyEMSnkIjyT
+QizClhQ8EY6kYOSWsw1SKEWISGElQkIKUxEyUshq4DwhhXA0CMnjazQazU2mmfTzokcKobyCXnFhRwoe
+LhgVVPg3wh0u8Pf0vQjvpNATYUUKzbCXJOgnikaj0dxcuk9ZHKAC3824fikmhRKvdKXnq0jAzTJ7Ukjw
+L6CxCDNSeBFhSAquu2+TQiVVJVkZu6G1BAGTirAkBfcHxwMpFLuTtR1SqBMVTVjQaDSaq0mQtWBhZC/r
+CToUr+kxIzjXwIWcWMd4c+UWqQCB1kkWyQcFfpE2IuQg4H5JFl8kdNPPnv4ltQU4kc+lBT4Rd+YVvEvD
+mMZghu5l0Wg0mr/mMYUfR/Xbs0Q3apoZ3br5Ff32XApwAK/EzwxDdtCuTjqAXUzoTiHlAPMmwMevV+Eb
+C+ZBNgplbmRzdHJlYW0KZW5kb2JqCjIxIDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlUkdCL1N1YnR5
+cGUvSW1hZ2UvSGVpZ2h0IDEyOC9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2JqZWN0L1dpZHRoIDk4
+L1NNYXNrIDIwIDAgUi9MZW5ndGggNTkvQml0c1BlckNvbXBvbmVudCA4Pj5zdHJlYW0KeJztwQENAAAA
+wqD3T20PBxQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADPBpMAAAEKZW5kc3RyZWFt
+CmVuZG9iagoyMiAwIG9iaiA8PC9Db2xvclNwYWNlL0RldmljZUdyYXkvU3VidHlwZS9JbWFnZS9IZWln
+aHQgOTgvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9XaWR0aCA5OC9MZW5ndGggMzc0L0Jp
+dHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7ZgRd8NQFIAfBAaBwGAwCBQGhUFgMAgEAsXgYDAoBAaD
+QqDnFAbFwaA4LAwKg0J/wKAwKAQGg8EgEAgE7t5LNhv2O6dn534/4H7nvuTed981Zh9E4kj3Eutvnp1g
+AwpGXQoRaNg6wRIUmLQUaU5Jg/Em9RwVWEKfNiiKQhOtQ1bgv0mdoYal69mrI04w7q6dJ04Q1k5QHmMC
+/9UJ2nNMYBbdGU05QdY6wYuHCYbdR6i5qzl4hycwb9UJZpjAxPRHMCapRHYBKDBmsK3PUIEtOHJIVZTD
+54ougeu2TmCBfaqNYIG9lgewQO4wQd4LCkwwFTiDicCTyyOcQbDuBTeUwESVi9+QU3zsRi+6mj/xjsRV
+svLfSR5gQdFITsYPXSNqh5wg615osqNWj/6iv83kHlompB99/C9oqAh+E9hAjWhc9fGbHDqhuI8v5QUT
+3/ysi2QO7q9P7H9aXnLxLbdtAS/gPfqJrCiKoiiKoiiHyzfFgO7zCmVuZHN0cmVhbQplbmRvYmoKMjMg
+MCBvYmogPDwvQ29sb3JTcGFjZS9EZXZpY2VSR0IvU3VidHlwZS9JbWFnZS9IZWlnaHQgOTgvRmlsdGVy
+L0ZsYXRlRGVjb2RlL1R5cGUvWE9iamVjdC9XaWR0aCA5OC9TTWFzayAyMiAwIFIvTGVuZ3RoIDUxL0Jp
+dHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7cEBDQAAAMKg909tDjegAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAgCcDcIwAAQplbmRzdHJlYW0KZW5kb2JqCjI0IDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2
+aWNlR3JheS9TdWJ0eXBlL0ltYWdlL0hlaWdodCA5OC9GaWx0ZXIvRmxhdGVEZWNvZGUvVHlwZS9YT2Jq
+ZWN0L1dpZHRoIDEyOC9MZW5ndGggNDAyL0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7dUfnMJg
+HMfx4CAYBOHB4GAQHATBQTAYHAwOBgdBEARBMDiYBUFwMDgIgiAIgoNgEAThQRAEQRAMgsHgd9u6dnuC
+p/975PvGZ3v12fb8KZMBAAAAAAAAAAAAAAAAAAAAAAA4Xzknsl6cUkdcXR37RP6zoPrrjCIDEfFsdUF7
+hdTruY9VXHfS//6mG9e/03/5oP8X93slAfXg80fv77afhNQDfaJlU+DB8zIzHtLsSaLOmCiu9zw31ddN
+UJqOFy42TUBb0u34mLF5N77dYSPkP6ce/VvzJoBoMayr2Zv2JTdRJ8eUuP3IT9/U8jd7gNG+vR03FP6t
+ySfdvF9Uk9V6kx3ZHbKLjnb8uyb7pJ6TzRW1ivk1modT7bGXFFoPa/JJv9JfJfrsWtTcuTPq2pbVqITY
+Wax5zJMfzN1p7Z1HozXZLZgtu1ArTIFk3sVr93jBaA02E3bM5PUN9mL1yn7kYJ/YvH45Hl9Ph+36kVV+
+kbbP6SvLybjbqumF2x4drLxcKuvh2jMty7rPf/YvroZa1AplbmRzdHJlYW0KZW5kb2JqCjI1IDAgb2Jq
+IDw8L0NvbG9yU3BhY2UvRGV2aWNlUkdCL1N1YnR5cGUvSW1hZ2UvSGVpZ2h0IDk4L0ZpbHRlci9GbGF0
+ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTI4L1NNYXNrIDI0IDAgUi9MZW5ndGggNTkvQml0c1Bl
+ckNvbXBvbmVudCA4Pj5zdHJlYW0KeJztwQENAAAAwqD3T20PBxQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAADPBpMAAAEKZW5kc3RyZWFtCmVuZG9iagoyNiAwIG9iaiA8PC9Db2xvclNwYWNl
+L0RldmljZUdyYXkvU3VidHlwZS9JbWFnZS9IZWlnaHQgOTgvRmlsdGVyL0ZsYXRlRGVjb2RlL1R5cGUv
+WE9iamVjdC9XaWR0aCAxMjgvTGVuZ3RoIDUzNi9CaXRzUGVyQ29tcG9uZW50IDg+PnN0cmVhbQp4nO2a
+kXtCURiHDwTBhSC4EASDIBgEgyAYBMPBYHAhCIIgCAZ7niAYDIJBEF4IgkEQBMFgEATBIAiCYHAhOPDt
+nHPb9uwf2Hvh/DB53+eec7/zne+mlE92EjwGJD7ay4CjV95EJClh/OLR8GWG8VXH8uUa4+c2lr/jtmBD
+W4ERxldjy9cXGD/YW4F5DhNouhVoYXw1E7YIhEd4Be4t/1TF+OpVZFXm8Cr8aHNP34al+/j4ZCZwKRoN
+SXy4FLnj8LWdPQprGP/aNUOHMibQdheCdR4TmDqBBSaQXziBKfYWBlsnMMEEKp9OoE/xVeMk7JXg1r2F
+0sAEIo3uACMg8oKeQ/2B74l9fLKRkOsHbApvK248Y1pi05PuufFILnYDqhuKX9oJ2xCU045IYmoXBnEq
+sA4hAfWUChyxSX2UtkS6SwnUD+kjwEb1pZXj9yi+yttPBUuyLYqSA1mHzdWkjuJ9shX6ijCco69D5SSf
+PfAZzN2ZeEXh01GVyAxahMv1WSB5YBYh103OBvuIMQhH+mywhjqT2uYsoIuMgLpzn2/lGcIrVRyczB4s
+YHzTGr2Qf+KxqaB/Yspeni9RfNMUhBY4M3Az/GRM3dmr31Vx00POpoH8RE9bQGVoxPpXIen8v4AK+7sf
+AWhyUp+k3zG40pyPXs06xBTeptR9v/37S4R4/GbL4gua5UfC8scw/4Ib4Pj4mHwBKWll+wplbmRzdHJl
+YW0KZW5kb2JqCjI3IDAgb2JqIDw8L0NvbG9yU3BhY2UvRGV2aWNlUkdCL1N1YnR5cGUvSW1hZ2UvSGVp
+Z2h0IDk4L0ZpbHRlci9GbGF0ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTI4L1NNYXNrIDI2IDAg
+Ui9MZW5ndGggNTkvQml0c1BlckNvbXBvbmVudCA4Pj5zdHJlYW0KeJztwQENAAAAwqD3T20PBxQAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADPBpMAAAEKZW5kc3RyZWFtCmVuZG9iagoyOCAw
+IG9iaiA8PC9Db2xvclNwYWNlL0RldmljZVJHQi9NYXNrIFswIDAgMCAwIDAgMCBdL1N1YnR5cGUvSW1h
+Z2UvSGVpZ2h0IDk4L0ZpbHRlci9GbGF0ZURlY29kZS9UeXBlL1hPYmplY3QvV2lkdGggMTMvTGVuZ3Ro
+IDI2L0JpdHNQZXJDb21wb25lbnQgOD4+c3RyZWFtCnic7cEBDQAAAMKg909tDwcUAAAAvBkO7gABCmVu
+ZHN0cmVhbQplbmRvYmoKMjkgMCBvYmogPDwvRmlsdGVyL0ZsYXRlRGVjb2RlL0xlbmd0aCAzNjk2Pj5z
+dHJlYW0KeJztWk2PJTsN3d9fUb+gSGLna88KicWsWCBWF/EAdYOGDX+fc45T1VXd00/oDbNAoNGo230T
+23Hs44/cr4+vj7QNL9srfqbt5VFnPX/y7y+PPz9+9/jbI2//fJTtN1j110dO228fv/9D2v6o7T233cGA
+W+L32J5L3Rt+T5ffjs8Ppvz3j58eZY7d+8kpW91LXmTZR9/qcP5Fv3vJe/bt+RBV6thT39YWShpjW/wW
+9Xx4y3svB12n76kdOxd1cl30krh2LlWuaj4PrUude+tQu6S553HQ2do+NrO8z7aIU0aQNafdbFvb6ih7
+K4eMRT0fNvre60F7S+Swdi7qZLtoyazb2rnUuSv7fPzp8eV2e2+3dL27652uO8swNK029j6xz0feRz7o
+l4MuVvaaQa/17+lzfXD9Cgtt9ED8wAoct23P1+1Xf3n9KW2//vv2hSvKOJeUcV1SvrGk1HZd4seSea6w
+4dcV9f0K8OISr+NY0j/IKUOCLmvmt9bw/2VNzucie1uDY1/X2CdrzNK5pn4m7LroU62vi8Ynp7+sKend
+mhlLcLXnkg83MUPUdY1/Y41Uuqxp7w4/4+zXJetYv8yL015sQtu0t1YQJGkf+kks8rybbw0/MnGRETML
+6LpPuFVHsBqosVs7gmpRCNbcEdeLNOt7smOjVeqyuGIlQtXz1mwSkV4e1svex9ZT2yfDwnxyc89GcVZ8
+z/UTFMLOcXzkfZ/HpsJN/WCJhQCd6m8i7welZX4pJvyMNSss4nDsYcwQeRBMvY+dAmuxnT4PREKsFpnJ
+PXH9QZ2gvOgEcLEtNhohkVgoptacaP48JBrYwkcgBUDeQDvMkKV+IvJYT9pNtIcfz0p4WtQ9F4DG3s68
+oZ3eMxkuvo6dVt/k8qQ/yJYObSqcAdkJuNudIM/b7wAgXHwC6rorQ8IB8McCIca0gATjE6RcDBAN/0QU
+5takg8+8V6g0y54mbNu5qhSswZGr7Yi50rUErGanlQ35p1TtPVX6QYfOw5RUdRaUBogLhmEcNJdyWCCn
+shsuMsFRmPLn5II3RY23rXNQhYYobschM/Zg6zJAhnV6XtZBqkYWdQ/j0Z1u+vygMwdWFDh7Zl0hIEH1
+MptOCD+DF+Zp+zzBYFFEg0nXPT4N7Fo7FfD14HsCQoHlnJGxAIOllAkfCCa5TEJPoMwn5ZXgyQ96Qdfa
+KGCbi+nCvfIm83bUHxU3EQ4tCwgROi5grvBl6KBAAgWXAAIsh64wjR3+jlhH9ZJU1zIetgrs6CYE6/SK
+lp0XpECCnIoqDDDBKAP8d2g836KwZcihQ96U+s6Tp448jJMnmIAn108GD828DoPYAaxB1jrpiqRlBbn1
+PNRZbl9PbVdQrMOAZsjM46gRTYcVFGnLRBGHIwwoRheNftB1d9l95YPXR7fdLZIF8+mRQ/gbYZ6oxt8j
+78TilZKCUWQrLML1jQXvGVgTyE+nbeSyskJ0KJEv3rqVenQryjNbi8BI1EisVnI6hJy563aU7zHX/3f9
+L+z6uaoWKaBGH4vugy227aiyF52QJQa7OKDAfCO9gAOzyvGHUoV3azMVqagrgvWiAHTw3j4OuiKr5nPn
+ok7Gi15ytbMfSt1Vfh5HyOhuq06g7BVkI7uCXp0FN3+XBIadqDoSg3Nt6SwKLvxFUe8rjc4QYb82BnHy
+DHKJW9tCj5uOv7zJ/o8nAqYmAPc6wetBG5IQkMWT75ZV07R1n3ZQTAXAfj/oDPhkcxM7F3VaZtEVhRWS
+wNrJpJLKwXdRTIiSuuil0dp51/f5Hch3mzElDiIGK2X0dSiR1FIOKQdVkclIAXEL/NHis8YkRrqz6jQm
+CZRGWO1NNFmCU8FeB8RHT5hGUHVNid7kUi0D5iON8C9V9R1olpjgZuoFUeFRF9CIBouszYoXlbiVxm6n
+oKlUt2OoQKRJogrYW9QUAQfoh6oVJYjzoJtYKNZwuqGtLoM00+eoEllW18FCmscg4TJLaIitVem/uI4K
+e6CqU/vRVJwjX9Fh2PhCNVQHHDyByuODWNkDEmecP7M+M3w0Vi/LTrgyJxdWlTgRKg5aFz/Quxr04sys
+5oATQyyy88VWVf2GD3xINnI8s2yPJol7b1Khlwdn7GWEFBSsuGuJ5fxCKkHqgDjcAe+7qvHAzhK+A4hj
+W6tRF8mqoELxTvgzlrkQ2bI25vcSZQiYij0dPnfqYC1cB6eaa0ZAS+Bm6BedM0RaHirZyFITV5hkCDpw
+jqVNW0f0A413YSh5xcjp5XepUAt+QocDGMstkiKSaMcrZ9CGIA5fU5KvoFfSThR3tA8qmyq3SAuX5fol
+Z/1oqvg5BqziY/O9UNkCaJHFWfnKEGM1WBf1DShb2buwu4i5QGWTUlWjJRVmBWe26H/V5hWeWg0vz2DR
+DAJ4UgpNYoxwFRvYh56QW+mZGT0/b7p3RnpGciBKDJ0r4z6InpwbCwpRy5HshIHoGxmo+BiwOegq3MgK
+EFhHBOq61ncyaQpHEU6/HcIDgDcArmaxNo1cS/jRTDSCczgSoDSIoI0/CswlU8CPLT6c6kLw8ezayrq3
+KL6LRghXmVAKFqGDoT2ChWGJVtZUecu4M3XeWX1zVXCwD6+yIKEB0ZaEOrADXRT5A3cAvcgWlS73sqBg
+Z9Kk7CgfhMoUxDltnhqCIKF7E/NU1OWrxzJ4Gr3C2WsYPK1yhlM55rIsNIIlGNhcKkzgUKQxYgiSagc0
+9yBj1E83qVALAcuWAuBqRTMJZ4QQqIEr2YXXxvKH5cnkpVhRTcS9Ro4GjMhDjVWTWoAQnHS1WYZ7kGEz
+e2Xj9dYPcmWOqk6W3DM7PEcMj3gAkLEdGMQGAljWOIEm0Bg0mq5aizNgX+7quBeOKWGzrCBpmuNz9sCR
+XY3GxJQX72L5nFHIn3tHvN8IAIwwrNmuBnAB0rmo1SFSu+4YuvIKgVRZrRVE0CAEzBgbEPVxWZxYWUyf
+oLO6pbtcGQQeRPNW1SowSAsDQGE9ZnlThjIeDmULYp6nwh+Rf7mXUNpVDBIsurCxyRzoDIEIbMXgA2z2
+CJxCjrtMaIUUDGdmfydj4Pp4YGATooNhBfnEBlKCZyMm6DwMXSwdui62ma5R5sirwCHmWz5tCC26v5co
+MwBLGHQsq4UYXQU7BU3TaZz2tDEVGlANAGZT6YBUIzWVpHwoTxuqGL3fOFRHlUA8bmyOIytHoXcXC71Y
+iZlYFarBtx+aHYGEKyblpCY3rXchjkU0v6PZsMizJt8vok2LjZ1HIvqQESeXCLwSYlQF3MXKHkRaF/Mi
+czQNckG6jiRzeq5xt4JEx90QTRd1PrEdtKnu7S3G1JWxREqtR4+6QFKH6CnnA927VvPP8VBGTnDNkzrk
+LBpaANC0s0pD2P52mmUpKqEbCivzvamMQDbZGTQCq4XVB6kheMoqCAR34btZexlRy+hEQ1NG0hWYGJWg
+3sTSMjUm0Zr0vIrWGEwvnwwngk4Oo8bgv/HanvLW0oQqwkQ6VSHmaKJLak5NuGWJSHJeojK/S+Vd58h/
+5D7D6YZuBdynyxxTlkUC05Mwf1UtwShCbvSuYKItNHZ1RJVGXtH/EEGM+1zFQ4sUfpNJreJhlj+GYGjo
+4mAFXmNjMua59IZbFUiImXHspHPUmBIixOmagx247Obhk0XMhpDI5weRMkRkAUfQq18uGmX6kNV5Hr3A
+OlI/8QWQzQjmTIvP1UJURwR1uQWAlzcy2U686H0+g/OU16xpgAMD9NJ9kRpP0pQ6lTGYocZWU44sUjUS
+QKVAb65iVtOMgkPJim/kZz5KGtomBRNvz0hZ3IIrhg7IusmUKeDfM17NVbyYihvyHooQJj1ogsRKJOLb
+Ah+ZsnIO/A5hwweoKOvgwmxwyzkXHVNvUJVPBxxr1syj30Sy3KgEfjKdWTNoVepkS0N7POuzSkB8dQZW
+hVldx3ElEM5MXUmdnKdGqq0pvuBz6psZJTPE6G3qvViZgknLxV0lFOs1Drh7DLhZzHFq4+EVMDOnty5n
+V7HGz8aqR5qKGn4aQ+EmDSsbSBigyS3ImaOXm1goBm/kmBh7I0KK+orqWq2+n69PSaEfBU+tHu8W/BQY
+UGtfXzkoqsr5OZ2hxBcmcE98ujONX8m3+ge5MghiiyuqijgYJDC9oiApUbgn5sOKSOfUfKiJqE0GZqkO
+yKgEEMUJSnlaCEcP6OUUHedgk9Y0Y+9FetO2N7nsUhSY3FtUuiT1Y5WtSFP+FadB92eq5mc9xky2Xil6
+jb6L7RANAiTTo2l844LIoASamzTWVPoulfYoSZUOeY+p/i/paRTMZ1dTp6PXLpdndzg5YJO1SxYbjvP0
+Hs4ujzfFKkF7UZgbeTU2RSWFo69u9CaXLWxRwHf1ZegAu8zGidxkCysopKQUZVoaepKdel3vaqnqmGui
+QsuA1FOeii9+OYQvUiyJ6Fvkkz9IlT2Y4EzLCxGM3X8L3irSCj2M7yjR2wMa9VRs6rM45IhH5hkdf2Z1
+w4dki1GBNKpwo/WdmSkt83aX+tQ7WdfGxHBhMU3ECqEcbNDMs/BgGmzEW3Z81YBQM/WNm1E0UOnCNzhN
+Y2lciGezHXVyqdra2nupMsbCbJaK+m6EKzYAvJptsX3HxTe4DJ9XESTIGi0pBEvcEal4qWS53aSGCjzO
+BWRHfZGhCTcr0hEnY1epMfMaVTsTI5btUg5O7Fiyvn3B47JuhUfWdXjdLx+pMrRQ+cpZG/xXZIm+C5Zp
+iSZhS9ZM+sbOm1QZg9OA+OrT0Pe/Ykoo3mNNCZEKGwKG/TwnGC6qnE+oi+KUcNLyi345aFo2Jo5c71fa
+9K2JoClJV6pNd72+46tex+iUHShvI6+uatF6tWo6aFd78Y5muRKQ0TUuZd3DoVHXrFJJm25RoiaC7eQV
+QY4DbRDunFBz4MrxetFWnIyDFx7+0Or5Tsv/rteyf+crmF/071/Bqx3/CmVuZHN0cmVhbQplbmRvYmoK
+MzEgMCBvYmo8PC9Db250ZW50cyAyOSAwIFIvVHlwZS9QYWdlL1Jlc291cmNlczw8L1Byb2NTZXQgWy9Q
+REYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUldL1hPYmplY3Q8PC9pbWc5IDEwIDAgUi9pbWc4
+IDkgMCBSL2ltZzcgOCAwIFIvaW1nNiA3IDAgUi9pbWc1IDYgMCBSL2ltZzQgNSAwIFIvaW1nMjYgMjcg
+MCBSL2ltZzI3IDI4IDAgUi9pbWcyNCAyNSAwIFIvaW1nMjUgMjYgMCBSL2ltZzIyIDIzIDAgUi9pbWcy
+MyAyNCAwIFIvaW1nMjAgMjEgMCBSL2ltZzIxIDIyIDAgUi9pbWcxOSAyMCAwIFIvaW1nMTcgMTggMCBS
+L2ltZzE4IDE5IDAgUi9pbWcxNSAxNiAwIFIvaW1nMTYgMTcgMCBSL2ltZzMgNCAwIFIvaW1nMTMgMTQg
+MCBSL2ltZzIgMyAwIFIvaW1nMTQgMTUgMCBSL2ltZzEgMiAwIFIvaW1nMTEgMTIgMCBSL2ltZzAgMSAw
+IFIvaW1nMTIgMTMgMCBSL2ltZzEwIDExIDAgUj4+Pj4vUGFyZW50IDMwIDAgUi9NZWRpYUJveFswIDAg
+NTk1IDg0Ml0+PgplbmRvYmoKMzAgMCBvYmo8PC9LaWRzWzMxIDAgUl0vVHlwZS9QYWdlcy9Db3VudCAx
+Pj4KZW5kb2JqCjMyIDAgb2JqPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDMwIDAgUj4+CmVuZG9iagozMyAw
+IG9iajw8L01vZERhdGUoRDoyMDE2MDQwNTIxNDkwNVopL0NyZWF0b3IoaHR0cDovL3d3dy5maWxlZm9y
+bWF0LmluZm8vY29udmVydC9pbWFnZS9zdmcycGRmLmh0bSkvQ3JlYXRpb25EYXRlKEQ6MjAxNjA0MDUy
+MTQ5MDVaKS9Qcm9kdWNlcihpVGV4dDEuMi4zIGJ5IGxvd2FnaWUuY29tIFwoYmFzZWQgb24gaXRleHQt
+cGF1bG8tMTUyXCkpPj4KZW5kb2JqCnhyZWYKMCAzNAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAw
+MTUgMDAwMDAgbiAKMDAwMDAwMDIwMSAwMDAwMCBuIAowMDAwMDAwNDI4IDAwMDAwIG4gCjAwMDAwMDA2
+MjEgMDAwMDAgbiAKMDAwMDAwMTA0OCAwMDAwMCBuIAowMDAwMDAxMjQxIDAwMDAwIG4gCjAwMDAwMDE0
+MzkgMDAwMDAgbiAKMDAwMDAwMjEwMiAwMDAwMCBuIAowMDAwMDAyMzI2IDAwMDAwIG4gCjAwMDAwMDI2
+NjUgMDAwMDAgbiAKMDAwMDAwMjkwMiAwMDAwMCBuIAowMDAwMDAzNjQ3IDAwMDAwIG4gCjAwMDAwMDM4
+ODUgMDAwMDAgbiAKMDAwMDAwNDEyNCAwMDAwMCBuIAowMDAwMDA0MzE5IDAwMDAwIG4gCjAwMDAwMDQ3
+OTcgMDAwMDAgbiAKMDAwMDAwNDk5MiAwMDAwMCBuIAowMDAwMDA1MzA1IDAwMDAwIG4gCjAwMDAwMDU1
+NDMgMDAwMDAgbiAKMDAwMDAwNTc4OCAwMDAwMCBuIAowMDAwMDA2Mzc0IDAwMDAwIG4gCjAwMDAwMDY2
+MDAgMDAwMDAgbiAKMDAwMDAwNzEyOSAwMDAwMCBuIAowMDAwMDA3MzQ2IDAwMDAwIG4gCjAwMDAwMDc5
+MDQgMDAwMDAgbiAKMDAwMDAwODEzMCAwMDAwMCBuIAowMDAwMDA4ODIyIDAwMDAwIG4gCjAwMDAwMDkw
+NDggMDAwMDAgbiAKMDAwMDAwOTI0NyAwMDAwMCBuIAowMDAwMDEzNTEwIDAwMDAwIG4gCjAwMDAwMTMw
+MTIgMDAwMDAgbiAKMDAwMDAxMzU2MiAwMDAwMCBuIAowMDAwMDEzNjA4IDAwMDAwIG4gCnRyYWlsZXIK
+PDwvSW5mbyAzMyAwIFIvSUQgWzxiMzU4MmM2Y2VmYWNmMzhjYTg3NjU3NTA0NWQ0ODJkMT48YjM1ODJj
+NmNlZmFjZjM4Y2E4NzY1NzUwNDVkNDgyZDE+XS9Sb290IDMyIDAgUi9TaXplIDM0Pj4Kc3RhcnR4cmVm
+CjEzODE0CiUlRU9GCoAL0i8wOjtdTlNNdXRhYmxlRGF0YaM6PDRWTlNEYXRh0i8wPj9dTlNQREZJbWFn
+ZVJlcKNAQTRdTlNQREZJbWFnZVJlcFpOU0ltYWdlUmVw0i8wQ0RXTlNBcnJheaJDNNIvMEZHXk5TTXV0
+YWJsZUFycmF5o0ZDNNNJIglKS0xXTlNXaGl0ZUQwIDAAEAOAENIvME5PV05TQ29sb3KiTjTSLzBRUldO
+U0ltYWdlolE0XxAPTlNLZXllZEFyY2hpdmVy0VVWVHJvb3SAAQAIABEAGgAjAC0AMgA3AEwAUgBbAGIA
+bwB2AH4AgACFAIcAiQCOAJkAmwCdAJ8ApACnAKkAqwCtAK8AvgDFAM8A4gD+ARABHQEfASEBIwElAScB
+MgFOAVMBWAFaAVwBYQFsAXUBggGFAZIBmwGgAag64TrjOug69jr6OwE7BjsUOxg7JjsxOzY7PjtBO0Y7
+VTtZO2A7aDttO287cTt2O347gTuGO447kTujO6Y7qwAAAAAAAAIBAAAAAAAAAFcAAAAAAAAAAAAAAAAA
+ADutA
+</mutableData>
+        </image>
         <image name="att" width="404" height="220"/>
         <image name="gameBG" width="852" height="480"/>
         <image name="gameBG2" width="100.44000244140625" height="68.760002136230469"/>

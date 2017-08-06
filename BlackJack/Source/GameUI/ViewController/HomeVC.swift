@@ -24,20 +24,20 @@ class HomeVC: NSViewController {
     
     func prepareForButtons() {
         let pstyle = NSMutableParagraphStyle()
-        pstyle.alignment = .Center
+        pstyle.alignment = .center
         let attri = [
-            NSForegroundColorAttributeName : NSColor.whiteColor(),
+            NSForegroundColorAttributeName : NSColor.white,
             NSParagraphStyleAttributeName : pstyle,
             NSFontAttributeName : NSFont(name: "HelveticaNeue-Light", size: 22)!
         ]
         
         startButton.layer?.cornerRadius = startButton.h/2.0
-        startButton.layer?.backgroundColor = NSColor.blackColor().CGColor
+        startButton.layer?.backgroundColor = NSColor.black.cgColor
         startButton.layer?.opacity = 0.5
         startButton.attributedTitle = NSAttributedString(string: "Start", attributes: attri)
         
         mapButton.layer?.cornerRadius = mapButton.h/2.0
-        mapButton.layer?.backgroundColor = NSColor.blackColor().CGColor
+        mapButton.layer?.backgroundColor = NSColor.black.cgColor
         mapButton.layer?.opacity = 0.5
         mapButton.attributedTitle = NSAttributedString(string: "Map", attributes: attri)
     }

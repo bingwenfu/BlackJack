@@ -8,21 +8,21 @@
 
 // Type of Suit
 enum CardSuitType {
-    case Clubs, Diamonds, Hearts, Spades
+    case clubs, diamonds, hearts, spades
 }
 
 // Type of Card
 enum CardType {
-    case Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Hidden
+    case ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king, hidden
 }
 
 // The value each cards correspond in BlackJack
 let cardTypeToValueMap : [CardType : [Int]] = [
-    .Ace   : [1,11],  .Two   : [2],  .Three : [3],
-    .Four  : [4]   ,  .Five  : [5],  .Six   : [6],
-    .Seven : [7]   ,  .Eight : [8],  .Nine  : [9],
-    .Ten   : [10]  ,  .Jack  : [10], .Queen : [10],
-    .King  : [10]  ,  .Hidden: [0]
+    .ace   : [1,11],  .two   : [2],  .three : [3],
+    .four  : [4]   ,  .five  : [5],  .six   : [6],
+    .seven : [7]   ,  .eight : [8],  .nine  : [9],
+    .ten   : [10]  ,  .jack  : [10], .queen : [10],
+    .king  : [10]  ,  .hidden: [0]
 ]
 
 // The struct that encapsulate the card
@@ -39,7 +39,7 @@ struct Card {
 }
 
 // Given a array of cards and shuffle it
-func shuffle(inout cards: [Card]) {
+func shuffle(_ cards: inout [Card]) {
     let n = cards.count
     for _ in 1...n*20 {
         let n1 = Int(arc4random_uniform(UInt32(n)))
@@ -51,9 +51,9 @@ func shuffle(inout cards: [Card]) {
 }
 
 // creates decks of cards, n is the number of decks
-func deckOfCards(n: Int) -> [Card] {
-    let suits: [CardSuitType] = [.Clubs, .Diamonds, .Hearts, .Spades]
-    let types: [CardType] = [.Ace, .Two, .Three, .Four, .Five, .Six, .Seven, .Eight, .Nine, .Ten, .Jack, .Queen, .King]
+func deckOfCards(_ n: Int) -> [Card] {
+    let suits: [CardSuitType] = [.clubs, .diamonds, .hearts, .spades]
+    let types: [CardType] = [.ace, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king]
     var cards = [Card]()
     for _ in 0..<n {
         for s in suits {
@@ -67,7 +67,7 @@ func deckOfCards(n: Int) -> [Card] {
 }
 
 // deal n cards out of an card array
-func deal(inout cards:[Card], n: Int) -> [Card] {
+func deal(_ cards:inout [Card], n: Int) -> [Card] {
     var result = [Card]()
     for _ in 0..<n {
         if cards.count >= 1 {
@@ -81,7 +81,7 @@ func deal(inout cards:[Card], n: Int) -> [Card] {
 }
 
 // calculate all possibility value of cards exp: [Ace, Tree, King] = [14, 24]
-func totalValueOfCardsHelper(cards: [Card]) -> [Int] {
+func totalValueOfCardsHelper(_ cards: [Card]) -> [Int] {
     var result = [0]
     for ele in (cards.map(){$0.value}) {
         result = ele.flatMap() { e in return result.map() { $0 + e } }
@@ -90,7 +90,7 @@ func totalValueOfCardsHelper(cards: [Card]) -> [Int] {
 }
 
 // return all valid cards value of cards [Ace, Tree, King] = [14]
-func totalValueOfCards(cards: [Card]) -> [Int] {
+func totalValueOfCards(_ cards: [Card]) -> [Int] {
     let result = totalValueOfCardsHelper(cards)
     let filtered = result.filter() {$0 <= 21}
     let dup = filtered.count > 0 ? filtered : [result[0]]
@@ -99,16 +99,16 @@ func totalValueOfCards(cards: [Card]) -> [Int] {
 }
 
 // given a Card return the correspond card image name
-func imageNameForCard(c: Card) -> String {
-    let smap: [CardSuitType: String] = [.Clubs: "c", .Diamonds: "d", .Hearts: "h", .Spades:"s"]
+func imageNameForCard(_ c: Card) -> String {
+    let smap: [CardSuitType: String] = [.clubs: "c", .diamonds: "d", .hearts: "h", .spades:"s"]
     let cmap: [CardType: String] = [
-        .Ace: "a",   .Two: "2",   .Three: "3", .Four: "4", .Five: "5",
-        .Six: "6",   .Seven: "7", .Eight: "8", .Nine: "9", .Ten: "10",
-        .Jack: "j",  .Queen: "q", .King:  "k"
+        .ace: "a",   .two: "2",   .three: "3", .four: "4", .five: "5",
+        .six: "6",   .seven: "7", .eight: "8", .nine: "9", .ten: "10",
+        .jack: "j",  .queen: "q", .king:  "k"
     ]
-    if let s = smap[c.suitType], c = cmap[c.cardType] {
+    if let s = smap[c.suitType], let c = cmap[c.cardType] {
         return s+c
-    } else if c.cardType == .Hidden {
+    } else if c.cardType == .hidden {
         return "h"
     } else {
         print("can not find image name for card \(c) in \(#function)")

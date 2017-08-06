@@ -1,10 +1,21 @@
 PODS:
+  - BonMot (4.2)
   - pop (1.0.9)
+  - SwiftyAttributes (3.1.0)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - BonMot
   - pop (~> 1.0)
+  - SwiftyAttributes
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
+  BonMot: 9dbd59135974d2fa591a2084b3489bdc0e15e8f8
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  SwiftyAttributes: f337a324cd21f1b18782ab85d3478ccae73f7593
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 58bd5f8d610f9ac3944618b315ce9817c6e7d82c
+
+COCOAPODS: 1.2.0

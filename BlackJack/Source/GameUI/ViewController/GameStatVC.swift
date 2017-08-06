@@ -27,7 +27,7 @@ class GameStatVC: NSViewController {
         // nothing
     }
     
-    func updateLabel(gameStatClass: GameStatClass) {
+    func updateLabel(_ gameStatClass: GameStatClass) {
         let stat = gameStatClass.gameStat
         dealerBlackJackTimesLabel.stringValue = "\(stat.dealerBlackJackTimes)"
         playerBlackJackTimesLabel.stringValue = "\(stat.playerBlackJackTimes)"

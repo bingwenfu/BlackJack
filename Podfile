@@ -4,7 +4,11 @@
 # use_frameworks!
 
 target 'BlackJack' do
-pod 'pop', '~> 1.0'
+    use_frameworks!
+    pod 'pop', '~> 1.0'
+    pod 'SwiftyJSON'
+    pod 'SwiftyAttributes'
+    pod 'BonMot'
 end
 
 target 'BlackJackTests' do
@@ -14,4 +18,3 @@ end
 target 'BlackJackUITests' do
 
 end
-

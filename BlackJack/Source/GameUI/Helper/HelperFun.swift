@@ -13,41 +13,41 @@ let easeOut = kCAMediaTimingFunctionEaseOut
 let easeIn  = kCAMediaTimingFunctionEaseIn
 let linear  = kCAMediaTimingFunctionLinear
 
-func scaleMake(scale_xy: CGFloat) -> NSValue {
-    return NSValue(CGPoint: CGPointMake(scale_xy, scale_xy))
+func scaleMake(_ scale_xy: CGFloat) -> NSValue {
+    return NSValue(cgPoint: CGPoint(x: scale_xy, y: scale_xy))
 }
 
-func point(x: CGFloat, _ y: CGFloat) -> CGPoint {
-    return CGPointMake(x, y)
+func point(_ x: CGFloat, _ y: CGFloat) -> CGPoint {
+    return CGPoint(x: x, y: y)
 }
 
 
 // MARK: GCD Functions
 // ----------------------------------------------------------------
 
-func onGlobalThread(function :(() -> Void)) {
-    let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-    dispatch_async(dispatch_get_global_queue(priority, 0)) {
+func onGlobalThread(_ function :@escaping (() -> Void)) {
+    let priority = DispatchQueue.GlobalQueuePriority.default
+    DispatchQueue.global(priority: priority).async {
         function()
     }
 }
 
-func onMainThread(function :(() -> Void)) {
-    dispatch_async(dispatch_get_main_queue()) {
+func onMainThread(_ function :@escaping (() -> Void)) {
+    DispatchQueue.main.async {
         function()
     }
 }
 
-func withDelay(delayInSecond: Double, function :(() -> Void)) {
-    let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSecond * Double(NSEC_PER_SEC)))
-    dispatch_after(delay, dispatch_get_main_queue()) {
+func withDelay(_ delayInSecond: Double, function :@escaping (() -> Void)) {
+    let delay = DispatchTime.now() + Double(Int64(delayInSecond * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+    DispatchQueue.main.asyncAfter(deadline: delay) {
         function()
     }
 }
 
 extension CGRect {
-    func shift(x: CGFloat, _ y: CGFloat) -> CGRect {
-        return CGRectMake(origin.x + x, origin.y + y, size.width, size.height)
+    func shift(_ x: CGFloat, _ y: CGFloat) -> CGRect {
+        return CGRect(x: origin.x + x, y: origin.y + y, width: size.width, height: size.height)
     }
 }
 

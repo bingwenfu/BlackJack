@@ -25,6 +25,12 @@ class GameVC: NSViewController {
     var dealerCardDeckManager: CardDeckManager?
     var gameStatViewController: GameStatVC?
     
+    // auto play
+    var isMCAutoPlay = false
+    var mcPlayer = MCPlayer()
+    var actionDelayTime = 0.5
+    @IBOutlet weak var autoPlayLabel: NSTextField!
+    
     @IBOutlet weak var dealerLabel: RoundLabel!
     @IBOutlet weak var playerLabel: RoundLabel!
     @IBOutlet weak var resultLabel: RoundLabel!
@@ -60,6 +66,7 @@ class GameVC: NSViewController {
         view.wantsLayer = true
         homeButton.setCenterImageWithName("home")
         soundButton.setCenterImageWithName("sound")
+        setUpAutoPlayNotification()
     }
     
     override func viewDidAppear() {
@@ -82,11 +89,11 @@ class GameVC: NSViewController {
     // MARK: IBAction Method
     // ----------------------------------------------------------------
     
-    @IBAction func homeButtonClicked(sender: NSButton) {
-        self.dismissController(nil)
+    @IBAction func homeButtonClicked(_ sender: NSButton) {
+        self.dismiss(nil)
     }
     
-    @IBAction func bet2xButtonClicked(sender: AnyObject) {
+    @IBAction func bet2xButtonClicked(_ sender: AnyObject) {
         if playerBalance - playerBet >= 0 {
             playerBalance-=playerBet
             playerBet*=2
@@ -95,7 +102,7 @@ class GameVC: NSViewController {
         }
     }
     
-    @IBAction func clearBetButtonClicked(sender: AnyObject) {
+    @IBAction func clearBetButtonClicked(_ sender: AnyObject) {
         playerBalance+=playerBet
         playerBet = 0
         audioManager.playShortMp3WithName("chipStack")
@@ -103,7 +110,7 @@ class GameVC: NSViewController {
         betChipImageView.image = nil
     }
     
-    @IBAction func dealButtonClicked(sender: NSButton) {
+    @IBAction func dealButtonClicked(_ sender: AnyObject) {
         guard playerBet > 0 && playerBalance >= 0 else { return }
         setDealButtonSetEnable(false)
         self.removeAllCardsFromTable()
@@ -119,60 +126,63 @@ class GameVC: NSViewController {
         initialDealCards(playerCards, playerCardDeckManager, associatedLabel: playerLabel) {
             self.initialDealCards(dealerHiddenCards, self.dealerCardDeckManager, associatedLabel: self.dealerLabel) {
                 self.handelGameResult(gameResult)
-                if gameResult == .DealerBlackJack {
-                    self.flipShowDealerHiddenCard(dealerCards)
+                if gameResult == .dealerBlackJack {
+                    self.flipShowDealerHiddenCard(dealerCards: dealerCards)
                     self.dealerLabel.setCards(dealerCards)
                 }
+                self.autoPlayWithGameReponse((dealerCards, playerCards, gameResult))
             }
         }
     }
     
-    @IBAction func standButtonClicked(sender: AnyObject) {
+    @IBAction func standButtonClicked(_ sender: AnyObject) {
         setHitButtonSetEnable(false)
-        let (dealerCards, _, gameResult) = game.proceedWithAction(.Stand)
-        flipShowDealerHiddenCard(dealerCards)
+        let (dealerCards, playerCards, gameResult) = game.proceedWithAction(.stand)
+        flipShowDealerHiddenCard(dealerCards: dealerCards)
         dealerLabel.setCards(Array(dealerCards[0...1]))
         
         withDelay(0.7*animationSpeedFactor) {
             self.dealerCardsToEnd(self.dealerCardDeckManager, dealerCards, from: 2) {
                 self.handelGameResult(gameResult)
+                self.autoPlayWithGameReponse((dealerCards, playerCards, gameResult))
             }
         }
     }
     
-    @IBAction func chipButtonClicked(sender: NSButton) {
+    @IBAction func chipButtonClicked(_ sender: NSButton) {
         let map = [chipButton1:1, chipButton2:10, chipButton3:20, chipButton4:50, chipButton5:100]
         if let n = map[sender] {
             guard playerBalance-n >= 0 else { return }
-            graduallyUpdateBalanceLabelFrom(playerBalance, to: playerBalance-n)
+            graduallyUpdateBalanceLabelFrom(old: playerBalance, to: playerBalance-n)
             playerBalance -= n
             playerBet += n
             audioManager.playShortMp3WithName("chipStack")
             updateBetAndBalanceLabel()
-            pushOneChipToBetPositionFromBottom("\(n)")
+            pushOneChipToBetPositionFromBottom(imageName: "\(n)")
         }
     }
     
-    @IBAction func hitButtonClicked(sender: AnyObject) {
-        let (_, playerCards, gameResult) = game.proceedWithAction(.Hit)
+    @IBAction func hitButtonClicked(_ sender: AnyObject) {
+        let (dealerCards, playerCards, gameResult) = game.proceedWithAction(.hit)
         playerLabel.setCards(playerCards)
         playerCardDeckManager?.addCard(playerCards.last!) {
             self.handelGameResult(gameResult)
+            self.autoPlayWithGameReponse((dealerCards, playerCards, gameResult))
         }
     }
     
-    @IBAction func muteButtonClicked(sender: AnyObject) {
+    @IBAction func muteButtonClicked(_ sender: AnyObject) {
         let imageName = soundMuted ? "sound" : "mute"
         soundButton.setCenterImageWithName(imageName)
         soundMuted = !soundMuted
         audioManager.setMuted(soundMuted)
     }
     
-    @IBAction func statisticButtonClicked(sender: AnyObject) {
+    @IBAction func statisticButtonClicked(_ sender: AnyObject) {
         // init statVC from storyboard if not initialized
         if gameStatViewController == nil {
-            let sb = NSStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-            if let vc = sb.instantiateControllerWithIdentifier("GameStatVC") as? GameStatVC {
+            let sb = NSStoryboard(name: "Main", bundle: Bundle.main)
+            if let vc = sb.instantiateController(withIdentifier: "GameStatVC") as? GameStatVC {
                 gameStatViewController = vc
                 vc.view.alphaValue = 0.0
                 vc.backgroundImageView.removeFromSuperview()
@@ -187,26 +197,29 @@ class GameVC: NSViewController {
                 }
             } else {
                 v.alphaValue = 0.0
-                v.frame.origin = CGPointMake(15, 175)
+                v.frame.origin = CGPoint(x: 15, y: 175)
                 self.view.addSubview(v)
-                v.positionAnimation(CGRectMake(v.x, 155, v.w, v.h), duration: 0.2)
+                v.positionAnimation(CGRect(x: v.x, y: 155, width: v.w, height: v.h), duration: 0.2)
                 v.alphaAnimation(0.85, duration: 0.4)
             }
         }
+        // tmp
+        isMCAutoPlay = !isMCAutoPlay
     }
     
-    @IBAction func doubleDoneButtonClicked(sender: NSButton) {
+    @IBAction func doubleDoneButtonClicked(_ sender: AnyObject) {
         guard playerBalance >= playerBet else { return }
         playerBalance -= playerBet
         playerBet*=2
         updateBetAndBalanceLabel()
-        let (dealerCards, playerCards, gameResult) = game.proceedWithAction(.DoubleDown)
+        let (dealerCards, playerCards, gameResult) = game.proceedWithAction(.doubleDown)
         
         func handelGameResultAndResetBet() {
             playerBet = Int(Double(playerBet)/2.0)
             playerBalance+=playerBet
             updateBetAndBalanceLabel()
             self.handelGameResult(gameResult)
+            autoPlayWithGameReponse((dealerCards, playerCards, gameResult))
         }
         
         self.playerLabel.setCards(playerCards)
@@ -217,7 +230,7 @@ class GameVC: NSViewController {
                 return
             }
             // show hidden card and deal more if needed
-            self.flipShowDealerHiddenCard(dealerCards)
+            self.flipShowDealerHiddenCard(dealerCards: dealerCards)
             self.dealerLabel.setCards(Array(dealerCards[0...1]))
             withDelay(0.6) {
                 self.dealerCardsToEnd(self.dealerCardDeckManager, dealerCards, from: 2) {
@@ -227,17 +240,17 @@ class GameVC: NSViewController {
         }
     }
     
-    @IBAction func allInButtonClicked(sender: NSButton) {
+    @IBAction func allInButtonClicked(_ sender: NSButton) {
         guard playerBalance > 0 else { return }
         
         setDealButtonSetEnable(false)
         isInAllin = true
         playerBet += playerBalance
         updateBetAndBalanceLabel()
-        updateBalanceLabelWithAmount(-playerBalance)
+        updateBalanceLabelWithAmount(amount: -playerBalance)
         
         audioManager.playLongMp3WithName("all_in_1")
-        //playerVideo()
+        //playVideo()
         
         withDelay(2.0) {
             self.dealButtonClicked(sender)
@@ -252,16 +265,66 @@ class GameVC: NSViewController {
         gameStatViewController?.updateLabel(stat)
     }
     
+    // MARK: Auto Play Agent
+    // ----------------------------------------------------------------
+    
+    func autoPlayWithGameReponse(_ gameReponse: GameResponse) {
+        guard isMCAutoPlay == true else {
+            return
+        }
+        withDelay(actionDelayTime) {
+            self.delayedAutoPlayWithGameReponse(gameReponse)
+        }
+    }
+    
+    func delayedAutoPlayWithGameReponse(_ gameReponse: GameResponse) {
+        // if still playing, take a action
+        if gameReponse.gameResult == .playing {
+            let action = mcPlayer.actionForGameResponse(gr: gameReponse)
+            print(action)
+            switch action {
+            case .stand:
+                standButtonClicked(self)
+            case .hit:
+                hitButtonClicked(self)
+            case .doubleDown:
+                doubleDoneButtonClicked(self)
+            default:
+                print("action: ", action, " not implemented")
+            }
+            return
+        }
+        // else deal new card
+        // and update counter
+        print(gameReponse.gameResult)
+        mcPlayer.actionForGameResponse(gr: gameReponse)
+        dealButtonClicked(self)
+    }
+    
+    func updateAutoPlayLabel(n: Notification) {
+        guard let str = n.object as? NSAttributedString else {
+            print("updateAutoPlayLabel did not receive an attributed string, ", n.object)
+            return
+        }
+        autoPlayLabel.attributedStringValue = str
+    }
+    
+    func setUpAutoPlayNotification() {
+        let sel = #selector(updateAutoPlayLabel(n:))
+        let name = NSNotification.Name("AutoPlayUpdated")
+        NotificationCenter.default.addObserver(self, selector: sel, name: name, object: nil)
+    }
+    
     // MARK: Video Related Method
     // ----------------------------------------------------------------
     
-    func playerVideo() {
-        guard let url = NSBundle.mainBundle().URLForResource("gambleGod", withExtension:"mp4") else { return }
-        player = AVPlayer(URL: url)
+    func playVideo() {
+        guard let url = Bundle.main.url(forResource: "gambleGod", withExtension:"mp4") else { return }
+        player = AVPlayer(url: url)
         playerLayer = AVPlayerLayer(player: player)
-        player.actionAtItemEnd = AVPlayerActionAtItemEnd.None
+        player.actionAtItemEnd = AVPlayerActionAtItemEnd.none
         playerLayer.frame = self.view.bounds
-        playerLayer.backgroundColor = NSColor.blackColor().CGColor
+        playerLayer.backgroundColor = NSColor.black.cgColor
         playerLayer.opacity = 0.0
         player.volume = 0.0
         view.layer?.addSublayer(playerLayer)
@@ -269,10 +332,10 @@ class GameVC: NSViewController {
         
         playerLayer.alphaAnimation(1.0, duration: 2.0)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(videoEned), name: AVPlayerItemDidPlayToEndTimeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(videoEned), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
-    func videoEned(noti: NSNotification) {
+    func videoEned(_ noti: Notification) {
         playerLayer.alphaAnimation(0.0, duration: 0.1) { (anim, finished) in
             self.playerLayer.removeFromSuperlayer()
         }
@@ -281,30 +344,30 @@ class GameVC: NSViewController {
     // MARK: Handel Game Results
     // ----------------------------------------------------------------
     
-    func handelGameResult(gameResult: GameResult) {
+    func handelGameResult(_ gameResult: GameResult) {
         switch gameResult {
-        case .PlayerBlackJack:
+        case .playerBlackJack:
             handlePlayerBlackJack()
-        case .DealerBlackJack :
+        case .dealerBlackJack :
             handleDealerBlackJack()
-        case .DealerBusted:
+        case .dealerBusted:
             handleDealerBusted()
-        case .PlayerBusted:
+        case .playerBusted:
             handlePlayerBusted()
-        case .PlayerWin:
+        case .playerWin:
             handelPlayerWin()
-        case .DealerWin:
+        case .dealerWin:
             handelDealerWin()
-        case .Push:
+        case .push:
             handelPush()
-        case .Playing:
+        case .playing:
             self.setHitButtonSetEnable(true)
         }
         
         if isInAllin && isPlayerWin(gameResult) {
             fullScreenChipsFallAnimation()
         }
-        if isInAllin && (gameResult != .Playing) {
+        if isInAllin && (gameResult != .playing) {
             isInAllin = false
             let delay = isPlayerWin(gameResult) ? 4.0 : 0.0
             withDelay(delay) {
@@ -325,7 +388,7 @@ class GameVC: NSViewController {
     }
     
     func handleDealerBlackJack() {
-        showLoseLoseChipAnimation(-Int(Double(playerBet)*1.5))
+        showLoseLoseChipAnimation(amount: -Int(Double(playerBet)*1.5))
         resultLabel.stringValue = "Dealer BlackJack"
         withDelay(0.1) {
             self.setDealButtonSetEnable(true)
@@ -333,7 +396,7 @@ class GameVC: NSViewController {
     }
     
     func handlePlayerBlackJack() {
-        showWinChipAnimation(Int(Double(playerBet)*1.5))
+        showWinChipAnimation(winAmount: Int(Double(playerBet)*1.5))
         resultLabel.stringValue = "You BlackJack"
         withDelay(0.1) {
             self.setDealButtonSetEnable(true)
@@ -341,7 +404,7 @@ class GameVC: NSViewController {
     }
     
     func handlePlayerBusted() {
-        showLoseLoseChipAnimation(-playerBet)
+        showLoseLoseChipAnimation(amount: -playerBet)
         setHitButtonSetEnable(false)
         resultLabel.stringValue = "Dealer Won"
         withDelay(0.1) {
@@ -350,7 +413,7 @@ class GameVC: NSViewController {
     }
     
     func handleDealerBusted() {
-        showWinChipAnimation(playerBet)
+        showWinChipAnimation(winAmount: playerBet)
         setHitButtonSetEnable(false)
         resultLabel.stringValue = "You Won"
         withDelay(0.1) {
@@ -359,7 +422,7 @@ class GameVC: NSViewController {
     }
     
     func handelPlayerWin() {
-        showWinChipAnimation(playerBet)
+        showWinChipAnimation(winAmount: playerBet)
         setHitButtonSetEnable(false)
         resultLabel.stringValue = "You Won"
         withDelay(0.1) {
@@ -368,7 +431,7 @@ class GameVC: NSViewController {
     }
     
     func handelDealerWin() {
-        showLoseLoseChipAnimation(-playerBet)
+        showLoseLoseChipAnimation(amount: -playerBet)
         resultLabel.stringValue = "Dealer Won"
         withDelay(0.1) {
             self.setDealButtonSetEnable(true)
@@ -379,7 +442,7 @@ class GameVC: NSViewController {
     // ----------------------------------------------------------------
     
     var dealButtonSetEnabled = true
-    func setDealButtonSetEnable(enable: Bool) {
+    func setDealButtonSetEnable(_ enable: Bool) {
         if dealButtonSetEnabled == enable { return }
         let views = [dealButton, bet2xButton, clearBetButton, allInButton]
         if enable { enableDealButtonSet(views) }
@@ -388,7 +451,7 @@ class GameVC: NSViewController {
     }
     
     var hitButtonSetEnabled = true
-    func setHitButtonSetEnable(enable: Bool) {
+    func setHitButtonSetEnable(_ enable: Bool) {
         if hitButtonSetEnabled == enable { return }
         let views = [doubleButton, standButton, hitButton]
         if enable { enableDealButtonSet(views) }
@@ -396,20 +459,20 @@ class GameVC: NSViewController {
         hitButtonSetEnabled = enable
     }
     
-    func enableDealButtonSet(views: [NSButton!]) {
+    func enableDealButtonSet(_ views: [NSButton?]) {
         for v in views {
-            v.alphaValue = 0.0
-            v.hidden = false
-            v.enabled = true
-            v.alphaAnimation(1.0, duration: 0.2*animationSpeedFactor)
+            v?.alphaValue = 0.0
+            v?.isHidden = false
+            v?.isEnabled = true
+            v?.alphaAnimation(1.0, duration: 0.2*animationSpeedFactor)
         }
     }
     
-    func disableDealButtonSet(views: [NSButton!]) {
+    func disableDealButtonSet(_ views: [NSButton?]) {
         for v in views {
-            v.enabled = false
-            v.alphaAnimation(0.0, duration: 0.2*animationSpeedFactor) { anim, finished in
-                v.hidden = true
+            v?.isEnabled = false
+            v?.alphaAnimation(0.0, duration: 0.2*animationSpeedFactor) { anim, finished in
+                v?.isHidden = true
             }
         }
     }
@@ -433,7 +496,7 @@ class GameVC: NSViewController {
     // MARK: Animation Method
     // ----------------------------------------------------------------
     
-    func dealerCardsToEnd(m: CardDeckManager?, _ cards: [Card], from i: Int, _ completion:(()->Void)?) {
+    func dealerCardsToEnd(_ m: CardDeckManager?, _ cards: [Card], from i: Int, _ completion:(()->Void)?) {
         guard i < cards.count else { completion?(); return; }
         self.dealerLabel.setCards(Array(cards[0...i]))
         
@@ -446,7 +509,7 @@ class GameVC: NSViewController {
         }
     }
     
-    func initialDealCards(c:[Card], _ m: CardDeckManager? , associatedLabel label: RoundLabel, completion:(()->Void)?) {
+    func initialDealCards(_ c:[Card], _ m: CardDeckManager? , associatedLabel label: RoundLabel, completion:(()->Void)?) {
         label.setCards([c[0]])
         m?.addCard(c[0]) {
             label.setCards(c)
@@ -458,7 +521,7 @@ class GameVC: NSViewController {
     
     var betChipImageView = NSImageView()
     func addBetChipImageView() {
-        betChipImageView = NSImageView(frame: CGRectMake(461,120,80,80))
+        betChipImageView = NSImageView(frame: CGRect(x: 461,y: 120,width: 80,height: 80))
         betChipImageView.image = NSImage(named: "100")
         view.addSubview(betChipImageView)
     }

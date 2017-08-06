@@ -7,30 +7,34 @@
 //
 
 enum GameResult {
-    case PlayerBusted, DealerBusted
-    case PlayerBlackJack, DealerBlackJack
-    case PlayerWin, DealerWin
-    case Push, Playing
+    case playerBusted, dealerBusted
+    case playerBlackJack, dealerBlackJack
+    case playerWin, dealerWin
+    case push, playing
 }
 
 enum GameAction {
-    case Stand, DoubleDown, Split, Hit
+    case stand, doubleDown, split, hit
 }
 
 typealias GameResponse = (dealerCards:[Card], playerCards:[Card], gameResult:GameResult)
 
-func isPlayerWin(gameResult: GameResult) -> Bool {
-    return (gameResult == .PlayerBlackJack || gameResult == .DealerBusted || gameResult == .PlayerWin)
+func isPlayerWin(_ gameResult: GameResult) -> Bool {
+    return (gameResult == .playerBlackJack || gameResult == .dealerBusted || gameResult == .playerWin)
+}
+
+func isDealerWin(_ gameResult: GameResult) -> Bool {
+    return (gameResult == .dealerBlackJack || gameResult == .playerBusted || gameResult == .dealerWin)
 }
 
 class BlackJackGame {
     
-    private var deckNumber = 4
-    private var cards: [Card]
-    private var playerCards = [Card]()
-    private var dealerCards = [Card]()
-    private let statistician = GameStatistician()
-    let hiddenCard = Card(cardType: .Hidden, suitType: .Hearts)
+    var deckNumber = 4
+    var cards: [Card]
+    var playerCards = [Card]()
+    var dealerCards = [Card]()
+    let statistician = GameStatistician()
+    let hiddenCard = Card(cardType: .hidden, suitType: .hearts)
     
     init() {
         cards = deckOfCards(deckNumber)
@@ -45,14 +49,20 @@ class BlackJackGame {
         if cards.count < (deckNumber/4)*52 {
             cards = deckOfCards(deckNumber)
             shuffle(&cards)
+            // send notification of shuffle
+            NotificationCenter.default.post(name: "shuffle", object: nil)
         }
         playerCards = deal(&cards, n: 2)
         dealerCards = deal(&cards, n: 2)
         let gameResult = checkInitialResult(dealerCards, playerCards: playerCards)
         
         var returnedDealerCards = Array(dealerCards)
-        if gameResult != .DealerBlackJack {
+        if gameResult != .dealerBlackJack {
             returnedDealerCards[1] = hiddenCard
+        }
+        // for card counter
+        if gameResult == .playerBlackJack {
+            returnedDealerCards = dealerCards
         }
         
         statistician.updateStatisticsWithGameResult(gameResult)
@@ -64,25 +74,25 @@ class BlackJackGame {
     /// - parameter action: game action, can be hit, slpit, stand and double
     /// - returns: the game result after the action is performed based on the blackjack rule
     
-    func proceedWithAction(action: GameAction) -> GameResponse {
-        var gameResult: GameResult = .Playing
+    func proceedWithAction(_ action: GameAction) -> GameResponse {
+        var gameResult: GameResult = .playing
         switch action {
-        case .Stand:
+        case .stand:
             while dealerCards.busted == false && dealerCards.maxValue < 17 {
                 dealerCards = dealerCards + deal(&cards, n: 1)
             }
             gameResult = checkGameResult(dealerCards, playerCards: playerCards)
-        case .DoubleDown:
+        case .doubleDown:
             playerCards = playerCards + deal(&cards, n: 1)
             if playerCards.minValue <= 21 {
-                return proceedWithAction(.Stand)
+                return proceedWithAction(.stand)
             }
             gameResult = checkGameResult(dealerCards, playerCards: playerCards)
-        case .Hit:
+        case .hit:
             playerCards = playerCards + deal(&cards, n: 1)
-            gameResult = playerCards.busted ? .PlayerBusted : .Playing
-        case .Split:
-            ""
+            gameResult = playerCards.busted ? .playerBusted : .playing
+        case .split:
+            print("split not implemented")
         }
         statistician.updateStatisticsWithGameResult(gameResult)
         return (dealerCards, playerCards, gameResult)
@@ -95,11 +105,11 @@ class BlackJackGame {
     /// - parameter playerCards: current cards of the player
     /// - returns: the game result based on the blackjack rule
     
-    private func checkInitialResult(dealerCards: [Card], playerCards: [Card]) -> GameResult {
-        if dealerCards.totalIs21 && playerCards.totalIs21 { return .Push }
-        if dealerCards.totalIs21 && !playerCards.totalIs21 { return .DealerBlackJack }
-        if playerCards.totalIs21 { return .PlayerBlackJack }
-        return .Playing
+    func checkInitialResult(_ dealerCards: [Card], playerCards: [Card]) -> GameResult {
+        if dealerCards.totalIs21 && playerCards.totalIs21 { return .push }
+        if dealerCards.totalIs21 && !playerCards.totalIs21 { return .dealerBlackJack }
+        if playerCards.totalIs21 { return .playerBlackJack }
+        return .playing
     }
     
     
@@ -110,16 +120,16 @@ class BlackJackGame {
     /// - parameter playerCards: current cards of the player
     /// - returns: the game result based on the blackjack rule
     
-    private func checkGameResult(dealerCards: [Card], playerCards: [Card]) -> GameResult {
-        if dealerCards.minValue > 21 { return .DealerBusted }
-        if playerCards.minValue > 21 { return .PlayerBusted }
+    func checkGameResult(_ dealerCards: [Card], playerCards: [Card]) -> GameResult {
+        if dealerCards.minValue > 21 { return .dealerBusted }
+        if playerCards.minValue > 21 { return .playerBusted }
         
         if dealerCards.maxValue >= 17 {
-            if dealerCards.maxValue < playerCards.maxValue { return .PlayerWin }
-            if dealerCards.maxValue > playerCards.maxValue { return .DealerWin }
-            if dealerCards.maxValue == playerCards.maxValue { return .Push }
+            if dealerCards.maxValue < playerCards.maxValue { return .playerWin }
+            if dealerCards.maxValue > playerCards.maxValue { return .dealerWin }
+            if dealerCards.maxValue == playerCards.maxValue { return .push }
         }
-        return .Playing
+        return .playing
     }
     
     func gameStatistic() -> GameStat {

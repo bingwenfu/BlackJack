@@ -4,7 +4,32 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BonMot.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BlackJack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-BlackJackTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-BlackJackUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyAttributes.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>B287172702CFCF6BC1F0A7A6394D7ABB</key>
+		<key>0BC64E19300DDA86F663B852EFB3F0F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B33913FF6ABBB62156431411A93B7AE3</key>
+		<key>6E430FF11FFE441D4ED31A66662B30CB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89A3DAE037AEEB27996051D1D32216FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8A2835B99C5F2E9597D68CA9B8C0A3A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>96E4F850A191357EF5A2031630123760</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A2C1E1CEBF7707C313ADA09C5ED256FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C01E7948AF38D9FDA6DB2D9AE1838DDF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

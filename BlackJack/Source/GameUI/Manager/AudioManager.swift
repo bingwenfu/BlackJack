@@ -23,7 +23,7 @@ class AudioManager : NSObject, AVAudioPlayerDelegate {
     var shortPlayer = AVAudioPlayer()
     var shouldMute = false
     
-    func setMuted(muted: Bool) {
+    func setMuted(_ muted: Bool) {
         shouldMute = muted
         if muted {
             longPlayer.stop()
@@ -32,21 +32,21 @@ class AudioManager : NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    func playLongMp3WithName(name: String) {
+    func playLongMp3WithName(_ name: String) {
         playMp3(name, withPlayer: &longPlayer)
     }
     
-    func playShortMp3WithName(name: String) {
+    func playShortMp3WithName(_ name: String) {
         playMp3(name, withPlayer: &shortPlayer)
     }
     
-    func playMp3(name: String, inout withPlayer player: AVAudioPlayer) {
+    func playMp3(_ name: String, withPlayer player: inout AVAudioPlayer) {
         guard shouldMute == false else { return }
-        guard let url2 = NSBundle.mainBundle().URLForResource(name, withExtension:"mp3") else {
+        guard let url2 = Bundle.main.url(forResource: name, withExtension:"mp3") else {
             return print("cannot find resource in \(#function)")
         }
         do {
-            player = try AVAudioPlayer(contentsOfURL: url2)
+            player = try AVAudioPlayer(contentsOf: url2)
             player.play()
             player.delegate = self
         } catch {
@@ -54,13 +54,13 @@ class AudioManager : NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         if player == self.longPlayer {
             player.play()
         }
     }
     
-    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         print("audioPlayerDecodeErrorDidOccur \(player) \(error)")
     }
 }

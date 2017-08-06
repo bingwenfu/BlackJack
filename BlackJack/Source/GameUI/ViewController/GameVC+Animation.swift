@@ -9,6 +9,10 @@
 import Foundation
 import Cocoa
 
+func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> CGRect {
+    return CGRect(x: x, y: y, width: w, height: h)
+}
+
 extension GameVC {
     
     func fullScreenChipsFallAnimation() {
@@ -43,25 +47,25 @@ extension GameVC {
         let backLayer = CALayer()
         backLayer.frame = containerView.bounds
         backLayer.contents = image
-        backLayer.doubleSided = false
+        backLayer.isDoubleSided = false
         backLayer.transform = CATransform3DMakeRotation(3.14, 0, 1, 0)
         containerLayer.addSublayer(backLayer)
         
         let frontLayer = CALayer()
         frontLayer.frame = containerView.bounds
         frontLayer.contents = image
-        frontLayer.doubleSided = false
+        frontLayer.isDoubleSided = false
         containerLayer.addSublayer(frontLayer)
         
         let animation = CABasicAnimation(keyPath: "transform.rotation.y")
         animation.fromValue = 0
         animation.toValue = 2*M_PI
         animation.duration = duration
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         animation.fillMode = kCAFillModeForwards
         animation.repeatCount = Float.infinity
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        containerLayer.addAnimation(animation, forKey: animation.keyPath)
+        containerLayer.add(animation, forKey: animation.keyPath)
         
         containerView.positionAnimation(CGRectMake(x, -w-0.1*y, w, w), duration: 1.6, easeIn) { anim, finished in
             containerView.removeFromSuperview()
@@ -88,9 +92,9 @@ extension GameVC {
         self.view.addSubview(imgV)
         
         // create animation path
-        let arcPath = CGPathCreateMutable();
-        CGPathMoveToPoint(arcPath, nil, s.x, s.y);
-        CGPathAddArc(arcPath, nil, c.x, c.y, r, sa, -sa, true);
+        let arcPath = CGMutablePath();
+        arcPath.move(to: s)
+        arcPath.addArc(center: c, radius: r, startAngle: sa, endAngle: -sa, clockwise: true)
         
         // play sound
         withDelay(0.15) {
@@ -102,7 +106,7 @@ extension GameVC {
         let animation = CAKeyframeAnimation(keyPath: "position")
         animation.path = arcPath
         animation.fillMode = kCAFillModeForwards
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         animation.duration = 0.9*animationSpeedFactor
         animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseOut)
         CATransaction.setCompletionBlock() {
@@ -112,16 +116,16 @@ extension GameVC {
                 let ani = CABasicAnimation(keyPath: "position")
                 ani.duration = 0.5*animationSpeedFactor
                 // print(point((self.view.x/2.0)-(imgV.w/2.0), 18))
-                ani.toValue = NSValue(CGPoint: point((self.view.w/2.0)-(imgV.w/2.0), 18))
+                ani.toValue = NSValue(cgPoint: point((self.view.w/2.0)-(imgV.w/2.0), 18))
                 ani.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseOut)
-                ani.removedOnCompletion = false
+                ani.isRemovedOnCompletion = false
                 ani.fillMode = kCAFillModeForwards
-                imgV.layer?.addAnimation(ani, forKey: "dc")
+                imgV.layer?.add(ani, forKey: "dc")
             }
             // update balance label after arc animation
-            self.updateBalanceLabelWithAmount(winAmount)
+            self.updateBalanceLabelWithAmount(amount: winAmount)
         }
-        imgV.layer?.addAnimation(animation, forKey:"showWinChipAnimation")
+        imgV.layer?.add(animation, forKey:"showWinChipAnimation")
         CATransaction.commit()
     }
     
@@ -140,9 +144,9 @@ extension GameVC {
         let sa = asin(abs(s.y-c.y)/r)
         
         // create animation path
-        let arcPath = CGPathCreateMutable();
-        CGPathMoveToPoint(arcPath, nil, s.x, s.y);
-        CGPathAddArc(arcPath, nil, c.x, c.y, r, -sa, sa, false);
+        let arcPath = CGMutablePath();
+        ///CGPathMoveToPoint(arcPath, nil, s.x, s.y);
+        ///CGPathAddArc(arcPath, nil, c.x, c.y, r, -sa, sa, false);
         
         // play sound
         withDelay(0.15) {
@@ -154,10 +158,10 @@ extension GameVC {
         animation.calculationMode = kCAAnimationPaced
         animation.path = arcPath
         animation.fillMode = kCAFillModeForwards
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         animation.duration = 0.7*animationSpeedFactor
         animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseOut)
-        betChipImageView.layer?.addAnimation(animation, forKey:"showWinChipAnimation")
+        betChipImageView.layer?.add(animation, forKey:"showWinChipAnimation")
         betChipImageView.alphaAnimation(0.2, duration: 1.5*animationSpeedFactor)
         
         withDelay(0.5) {
@@ -166,8 +170,8 @@ extension GameVC {
                 self.playerBalance = 0
                 self.updateBetAndBalanceLabel()
             } else {
-                self.updateBalanceLabelWithAmount(amount)
-                self.pushOneChipToBetPositionFromBottom("100")
+                self.updateBalanceLabelWithAmount(amount: amount)
+                self.pushOneChipToBetPositionFromBottom(imageName: "100")
             }
         }
     }
@@ -188,7 +192,7 @@ extension GameVC {
     func flipShowDealerHiddenCard(dealerCards: [Card]) {
         audioManager.playShortMp3WithName("cardSlide")
         for cv in dealerCardDeckManager!.allCardViews {
-            if cv.card?.cardType == .Hidden {
+            if cv.card?.cardType == .hidden {
                 cv.flip(cv.card!, to: dealerCards[1])
             }
         }
@@ -200,7 +204,7 @@ extension GameVC {
     }
     
     func updateBalanceLabelWithAmount(amount: Int) {
-        graduallyUpdateBalanceLabelFrom(playerBalance, to: playerBalance+amount)
+        graduallyUpdateBalanceLabelFrom(old: playerBalance, to: playerBalance+amount)
         playerBalance+=amount
     }
     

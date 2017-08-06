@@ -19,42 +19,42 @@ class GameStatClass {
 class GameStatistician {
     
     // private var to store all stat
-    private var totalHandsPlayed = 0
-    private var dealerBustedTimes = 0
-    private var PlayerBustedTimes = 0
-    private var dealerBlackJackTimes = 0
-    private var playerBlackJackTimes = 0
-    private var dealerWinTimes = 0
-    private var playerWinTimes = 0
-    private var pushTimes = 0
-    private var currentStreak = 0
-    private var longestWinStreak = 0
-    private var longestLoseStreak = 0
+    var totalHandsPlayed = 0
+    var dealerBustedTimes = 0
+    var PlayerBustedTimes = 0
+    var dealerBlackJackTimes = 0
+    var playerBlackJackTimes = 0
+    var dealerWinTimes = 0
+    var playerWinTimes = 0
+    var pushTimes = 0
+    var currentStreak = 0
+    var longestWinStreak = 0
+    var longestLoseStreak = 0
     
-    func updateStatisticsWithGameResult(gameResult: GameResult) {
+    func updateStatisticsWithGameResult(_ gameResult: GameResult) {
         // game ended
-        if gameResult != .Playing {
+        if gameResult != .playing {
             totalHandsPlayed += 1
         }
         
         // player lose
-        if gameResult == .PlayerBusted || gameResult == .DealerBlackJack || gameResult == .DealerWin {
+        if gameResult == .playerBusted || gameResult == .dealerBlackJack || gameResult == .dealerWin {
             dealerWinTimes+=1
             currentStreak = currentStreak<=0 ? currentStreak-1 : -1
-            if gameResult == .PlayerBusted { PlayerBustedTimes+=1 }
-            if gameResult == .DealerBlackJack { dealerBlackJackTimes+=1 }
+            if gameResult == .playerBusted { PlayerBustedTimes+=1 }
+            if gameResult == .dealerBlackJack { dealerBlackJackTimes+=1 }
         }
         
         // player win
-        if gameResult == .DealerBusted || gameResult == .PlayerBlackJack || gameResult == .PlayerWin {
+        if gameResult == .dealerBusted || gameResult == .playerBlackJack || gameResult == .playerWin {
             playerWinTimes+=1
             currentStreak = currentStreak>=0 ? currentStreak+1 : 1
-            if gameResult == .DealerBusted { dealerBustedTimes+=1 }
-            if gameResult == .PlayerBlackJack { playerBlackJackTimes+=1 }
+            if gameResult == .dealerBusted { dealerBustedTimes+=1 }
+            if gameResult == .playerBlackJack { playerBlackJackTimes+=1 }
         }
         
         // push
-        if gameResult == .Push {
+        if gameResult == .push {
             pushTimes+=1
         }
         

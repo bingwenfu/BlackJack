@@ -20,7 +20,7 @@ class CardView: NSImageView {
     }
     
     init(_ card: Card) {
-        super.init(frame: CGRectMake(0, 0, CardView.cardWidth, CardView.cardHeight))
+        super.init(frame: CGRect(x: 0, y: 0, width: CardView.cardWidth, height: CardView.cardHeight))
         self.card = card
         self.wantsLayer = true
         
@@ -36,7 +36,7 @@ class CardView: NSImageView {
         }
     }
     
-    func flip(from: Card, to: Card) {
+    func flip(_ from: Card, to: Card) {
         let containerView = NSView(frame: self.bounds)
         containerView.wantsLayer = true
         self.addSubview(containerView)
@@ -48,14 +48,14 @@ class CardView: NSImageView {
         let backLayer = CALayer()
         backLayer.frame = containerView.bounds
         backLayer.contents = NSImage(named: imageNameForCard(to))
-        backLayer.doubleSided = false
+        backLayer.isDoubleSided = false
         containerLayer.addSublayer(backLayer)
         backLayer.transform = CATransform3DMakeRotation(3.14, 0, 1, 0)
         
         let frontLayer = CALayer()
         frontLayer.frame = containerView.bounds
         frontLayer.contents = NSImage(named: imageNameForCard(from))
-        frontLayer.doubleSided = false
+        frontLayer.isDoubleSided = false
         containerLayer.addSublayer(frontLayer)
         
         // make background transparent
@@ -65,22 +65,22 @@ class CardView: NSImageView {
         animation.fromValue = 0
         animation.toValue = M_PI
         animation.duration = 0.3*animationSpeedFactor
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         animation.fillMode = kCAFillModeForwards
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        containerLayer.addAnimation(animation, forKey: animation.keyPath)
+        containerLayer.add(animation, forKey: animation.keyPath)
     }
 }
 
 class RoundButton: NSButton {
     
-    var overlayView = NSView(frame: CGRectZero)
+    var overlayView = NSView(frame: CGRect.zero)
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.wantsLayer = true
         self.layer?.cornerRadius = self.frame.size.width/2.0
-        self.layer?.backgroundColor = NSColor.yellowColor().CGColor
+        self.layer?.backgroundColor = NSColor.yellow.cgColor
         setUpOverlayView()
         
         let shadow = NSShadow()
@@ -94,16 +94,16 @@ class RoundButton: NSButton {
         setUpOverlayView()
     }
     
-    override func mouseDown(theEvent: NSEvent) {
+    override func mouseDown(with theEvent: NSEvent) {
         overlayView.alphaValue = 0.45
-        super.mouseDown(theEvent)
+        super.mouseDown(with: theEvent)
         overlayView.alphaValue = 0.0
     }
     
     func setUpOverlayView() {
         overlayView.frame = self.bounds
         overlayView.wantsLayer = true
-        overlayView.layer?.backgroundColor = NSColor.blackColor().CGColor
+        overlayView.layer?.backgroundColor = NSColor.black.cgColor
         overlayView.layer?.cornerRadius = self.bounds.width/2.0
         overlayView.alphaValue = 0.0
         if overlayView.superview == nil {
@@ -116,25 +116,25 @@ class GrayTransparentRoundButton: RoundButton {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.layer?.backgroundColor = NSColor.blackColor().CGColor
+        self.layer?.backgroundColor = NSColor.black.cgColor
         self.layer?.opacity = 0.5
-        self.setButtonType(.MomentaryChangeButton)
+        self.setButtonType(.momentaryChange)
     }
     
     init() {
-        super.init(frame: CGRectZero)
-        self.layer?.backgroundColor = NSColor.blackColor().CGColor
+        super.init(frame: CGRect.zero)
+        self.layer?.backgroundColor = NSColor.black.cgColor
         self.layer?.opacity = 0.5
-        self.setButtonType(.MomentaryChangeButton)
+        self.setButtonType(.momentaryChange)
     }
     
     var imgView: NSImageView?
-    func setCenterImageWithName(name: String) {
+    func setCenterImageWithName(_ name: String) {
         let size = self.frame.size
         let insetXY: CGFloat = 5.0
         if imgView == nil {
-            imgView = NSImageView(frame: CGRectMake(insetXY, insetXY, size.height-2*insetXY, size.width-2*insetXY))
-            self.addSubview(imgView!, positioned: .Below, relativeTo: overlayView)
+            imgView = NSImageView(frame: CGRect(x: insetXY, y: insetXY, width: size.height-2*insetXY, height: size.width-2*insetXY))
+            self.addSubview(imgView!, positioned: .below, relativeTo: overlayView)
         }
         let image = NSImage(named: name)
         imgView!.image = image
@@ -146,7 +146,7 @@ class RoundLabel: NSTextField {
         super.init(coder: coder)
         self.wantsLayer = true
         self.layer?.cornerRadius = self.frame.size.height/2.0
-        self.layer?.backgroundColor = NSColor.yellowColor().CGColor
+        self.layer?.backgroundColor = NSColor.yellow.cgColor
         self.layer?.anchorPoint = point(0.5,0.5)
         
         let shadow = NSShadow()
@@ -155,10 +155,10 @@ class RoundLabel: NSTextField {
         self.shadow = shadow
     }
     
-    func setCards(c: [Card]) {
+    func setCards(_ c: [Card]) {
         let strArr = c.totalValue.map() {String($0)}
-        self.stringValue = strArr.joinWithSeparator("/")
-        self.layer?.backgroundColor = (c.maxValue > 21 ? NSColor.redColor() : NSColor.yellowColor()).CGColor
+        self.stringValue = strArr.joined(separator: "/")
+        self.layer?.backgroundColor = (c.maxValue > 21 ? NSColor.red : NSColor.yellow).cgColor
         self.layer?.opacity = (c.count == 0 || c.maxValue == 0) ? 0.0 : 1.0
         setAnchorPoint(point(0.5,0.5), forView: self)
         if c.maxValue != 0 {
@@ -168,12 +168,12 @@ class RoundLabel: NSTextField {
         }
     }
     
-    func setAnchorPoint(anchorPoint: CGPoint, forView view: NSView) {
-        var newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x, view.bounds.size.height * anchorPoint.y)
-        var oldPoint = CGPointMake(view.bounds.size.width * view.layer!.anchorPoint.x, view.bounds.size.height * view.layer!.anchorPoint.y)
+    func setAnchorPoint(_ anchorPoint: CGPoint, forView view: NSView) {
+        var newPoint = CGPoint(x: view.bounds.size.width * anchorPoint.x, y: view.bounds.size.height * anchorPoint.y)
+        var oldPoint = CGPoint(x: view.bounds.size.width * view.layer!.anchorPoint.x, y: view.bounds.size.height * view.layer!.anchorPoint.y)
         
-        newPoint = CGPointApplyAffineTransform(newPoint, view.layer!.affineTransform())
-        oldPoint = CGPointApplyAffineTransform(oldPoint, view.layer!.affineTransform())
+        newPoint = newPoint.applying(view.layer!.affineTransform())
+        oldPoint = oldPoint.applying(view.layer!.affineTransform())
         
         var position = view.layer!.position
         position.x -= oldPoint.x
@@ -204,12 +204,12 @@ class AnnotationButton: NSView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.layer?.cornerRadius = self.frame.size.height/2.0
-        self.layer?.backgroundColor = NSColor.yellowColor().CGColor
+        self.layer?.backgroundColor = NSColor.yellow.cgColor
     }
     
     init() {
-        super.init(frame: CGRectMake(0, 0, 45,45))
-        self.layer?.backgroundColor = NSColor.blackColor().CGColor
+        super.init(frame: CGRect(x: 0, y: 0, width: 45,height: 45))
+        self.layer?.backgroundColor = NSColor.black.cgColor
         self.layer?.opacity = 1.0
         
         let imageVie = NSImageView(frame: self.bounds)
@@ -217,8 +217,8 @@ class AnnotationButton: NSView {
         self.addSubview(imageVie)
     }
     
-    override func mouseUp(theEvent: NSEvent) {
-        super.mouseUp(theEvent)
+    override func mouseUp(with theEvent: NSEvent) {
+        super.mouseUp(with: theEvent)
         responseFunc?(annotationWebUrlString)
     }
 }

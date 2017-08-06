@@ -13,15 +13,15 @@ class ProgressivePlayer: BlackJackPlayer {
     var baseBet = 100
     var bet = 100
     
-    func actionForGame(dealerCards: [Card], _ playerCards: [Card]) -> GameAction {
+    func actionForGame(_ dealerCards: [Card], _ playerCards: [Card]) -> GameAction {
         if playerCards.maxValue < 15 {
-            return .Hit
+            return .hit
         }
-        return .Stand
+        return .stand
     }
     
-    func gameEndedWithResult(gameResult: GameResult) {
-        if gameResult == .PlayerBusted || gameResult == .DealerBlackJack || gameResult == .DealerWin || gameResult == .Push {
+    func gameEndedWithResult(_ gameResult: GameResult) {
+        if gameResult == .playerBusted || gameResult == .dealerBlackJack || gameResult == .dealerWin || gameResult == .push {
             // bet = bet * 2
         } else {
             // bet = baseBet

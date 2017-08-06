@@ -10,7 +10,9 @@
 // Syntax sugar for type [Card]
 // this allow use to use cards.totalValue instead of totalValue(cards)
 
-extension _ArrayType where Generator.Element == Card {
+typealias CardsType = [Card]
+
+extension Sequence where Iterator.Element == Card {
     
     var totalValue: [Int] {
         get {
@@ -34,7 +36,8 @@ extension _ArrayType where Generator.Element == Card {
             guard let cards = self as? [Card] else { return 0 }
             var maxV = 0
             for v in cards.totalValue {
-                maxV = max(maxV, v)
+                /// Todo: replace with max
+                maxV = maxV > v ? maxV : v
             }
             return maxV
         }
@@ -45,7 +48,8 @@ extension _ArrayType where Generator.Element == Card {
             guard let cards = self as? [Card] else { return 0 }
             var minV = Int.max
             for v in cards.totalValue {
-                minV = min(minV, v)
+                /// Todo: replace with min
+                minV = minV < v ? minV : v
             }
             return minV
         }

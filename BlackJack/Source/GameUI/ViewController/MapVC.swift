@@ -23,20 +23,20 @@ class MapVC: NSViewController, MKMapViewDelegate {
         centerMapAtUnitedStates()
         labelBackgroundView.wantsLayer = true
         labelBackgroundView.layer?.cornerRadius = labelBackgroundView.h/2.0
-        labelBackgroundView.layer?.backgroundColor = NSColor.blackColor().CGColor
+        labelBackgroundView.layer?.backgroundColor = NSColor.black.cgColor
         labelBackgroundView.layer?.opacity = 0.4
     }
     
     // MARK: Handel Action
     // ----------------------------------------------------------------
     
-    @IBAction func homeButtonClicked(sender: AnyObject) {
-        self.dismissController(nil)
+    @IBAction func homeButtonClicked(_ sender: AnyObject) {
+        self.dismiss(nil)
     }
     
-    func annotationButtonClicked(button: AnnotationButton) {
+    func annotationButtonClicked(_ button: AnnotationButton) {
         if let urlStr = button.annotationWebUrlString {
-            system("open -a safari \(urlStr)")
+            ///system("open -a safari \(urlStr)")
         }
     }
 
@@ -44,18 +44,18 @@ class MapVC: NSViewController, MKMapViewDelegate {
     // MARK: MKMapView Delegate
     // ----------------------------------------------------------------
     
-    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         searchAndShowOnMapOfNearBy("casino")
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is CasinoAnnotation {
             
             let button = AnnotationButton()
             button.annotationWebUrlString = annotation.subtitle!
             button.responseFunc = { str in
                 if let url = str {
-                    system("open -a safari \(url)")
+                    ///system("open -a safari \(url)")
                 }
             }
             
@@ -78,7 +78,7 @@ class MapVC: NSViewController, MKMapViewDelegate {
         mapView.setRegion(region, animated: false)
     }
     
-    func addMapItemsToMapAnnotations(mapItems: [MKMapItem]) {
+    func addMapItemsToMapAnnotations(_ mapItems: [MKMapItem]) {
         for item in mapItems {
             guard let name = item.name else { continue }
             guard annotationMap[name] == nil else { continue }
@@ -91,13 +91,13 @@ class MapVC: NSViewController, MKMapViewDelegate {
         }
     }
     
-    func searchAndShowOnMapOfNearBy(object: String) {
+    func searchAndShowOnMapOfNearBy(_ object: String) {
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = object
         request.region = mapView.region
         
         let search = MKLocalSearch(request: request)
-        search.startWithCompletionHandler() { res, err in
+        search.start() { res, err in
             guard let response = res else { return print("Search error: \(err)") }
             self.addMapItemsToMapAnnotations(response.mapItems)
         }
